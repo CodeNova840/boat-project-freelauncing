@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 // 🖥️ Main Login Screen
 export default function LoginScreen() {
   const navigate = useNavigate();
-  const [passcode, setPasscode] = useState("dealer123");
-  const [email, setEmail] = useState('dealer@gmail.com')
+  const [passcode, setPasscode] = useState("");
+  const [email, setEmail] = useState('')
   const handleLogin = (e) => {
     e.preventDefault();
 
