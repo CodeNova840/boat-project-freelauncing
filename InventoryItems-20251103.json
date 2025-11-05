@@ -1,0 +1,956 @@
+[
+ {
+  "*ItemCode": "100-Tow Bow",
+  "ItemName": "2x towing Eye Bow",
+  "Costs ex GST": 902.5,
+  "RRP EX GST": 979,
+  "RRP in GST": 1076.9,
+  "Dealer Price ex GST": 902.5,
+  "dealer margin": 76.5
+ },
+ {
+  "*ItemCode": "200-COVER",
+  "ItemName": "Australian made Cover - larger Boats",
+  "Costs ex GST": 4695,
+  "RRP EX GST": 5195,
+  "RRP in GST": 5714.500000000001,
+  "Dealer Price ex GST": 4695,
+  "dealer margin": 500
+ },
+ {
+  "*ItemCode": "100- Spray",
+  "ItemName": "Centre Console Spray Hood",
+  "Costs ex GST": 1724.9999999999998,
+  "RRP EX GST": 1800,
+  "RRP in GST": 1980.0000000000002,
+  "Dealer Price ex GST": 1725,
+  "dealer margin": 75
+ },
+ {
+  "*ItemCode": "100-CLA-ST",
+  "ItemName": "Clarion Stereo w Bluetooth, 2 Speakers",
+  "Costs ex GST": 1320.1999999999998,
+  "RRP EX GST": 1290,
+  "RRP in GST": 1419.0000000000002,
+  "Dealer Price ex GST": 1320.2,
+  "dealer margin": -30.200000000000045
+ },
+ {
+  "*ItemCode": "100-SHOW",
+  "ItemName": "Shower Kit complete",
+  "Costs ex GST": 1489.2499999999998,
+  "RRP EX GST": 1540.91,
+  "RRP in GST": 1695.0010000000002,
+  "Dealer Price ex GST": 1489.25,
+  "dealer margin": 51.66000000000008
+ },
+ {
+  "*ItemCode": "907-Coupe DELIVERY",
+  "ItemName": "907 - Coupe - Delivery Costs, including 150 litre",
+  "Costs ex GST": 977.4999999999999,
+  "RRP EX GST": 1086.36,
+  "RRP in GST": 1194.996,
+  "Dealer Price ex GST": 990,
+  "dealer margin": 96.3599999999999
+ },
+ {
+  "*ItemCode": "100-WINDLASS PREP",
+  "ItemName": "Power to the bow (windlass prep)",
+  "Costs ex GST": 482.99999999999994,
+  "RRP EX GST": 540,
+  "RRP in GST": 594,
+  "Dealer Price ex GST": 486,
+  "dealer margin": 54
+ },
+ {
+  "*ItemCode": "SIMRAD-Chart",
+  "ItemName": "SIMRAD Chartplotter",
+  "Costs ex GST": 316.25,
+  "RRP EX GST": 359.09,
+  "RRP in GST": 394.999,
+  "Dealer Price ex GST": 323.181,
+  "dealer margin": 35.90899999999999
+ },
+ {
+  "*ItemCode": "100-RAM-RAP816U",
+  "ItemName": "RAM 16\" tough track",
+  "Costs ex GST": 16.099999999999998,
+  "RRP EX GST": 28.95,
+  "RRP in GST": 31.845,
+  "Dealer Price ex GST": 26.055,
+  "dealer margin": 2.8949999999999996
+ },
+ {
+  "*ItemCode": "907-CONSOLE",
+  "ItemName": "907 Console Covers",
+  "Costs ex GST": 590,
+  "RRP EX GST": 600,
+  "RRP in GST": 660,
+  "Dealer Price ex GST": 600,
+  "dealer margin": 0
+ },
+ {
+  "*ItemCode": "Dual Batt",
+  "ItemName": "Dual Battery with install",
+  "Costs ex GST": 1255,
+  "RRP EX GST": 1350,
+  "RRP in GST": 1485.0000000000002,
+  "Dealer Price ex GST": 1265,
+  "dealer margin": 85
+ },
+ {
+  "*ItemCode": "100-RAM-RAP421",
+  "ItemName": "RAM Track Base",
+  "Costs ex GST": 20.125,
+  "RRP EX GST": 34.95,
+  "RRP in GST": 38.44500000000001,
+  "Dealer Price ex GST": 25,
+  "dealer margin": 9.950000000000003
+ },
+ {
+  "*ItemCode": "100-CONS",
+  "ItemName": "Console and back seat covers 707-767-827",
+  "Costs ex GST": 575,
+  "RRP EX GST": 600,
+  "RRP in GST": 660,
+  "Dealer Price ex GST": 586.5,
+  "dealer margin": 13.5
+ },
+ {
+  "*ItemCode": "827-DELI",
+  "ItemName": "827 - Delivery costs, including 150 litre fuel",
+  "Costs ex GST": 718.75,
+  "RRP EX GST": 813.64,
+  "RRP in GST": 895.004,
+  "Dealer Price ex GST": 732.276,
+  "dealer margin": 81.36400000000003
+ },
+ {
+  "*ItemCode": "907-DELI",
+  "ItemName": "907 - Delivery  Costs, including 150 litre fuel",
+  "Costs ex GST": 865,
+  "RRP EX GST": 977.27,
+  "RRP in GST": 1074.997,
+  "Dealer Price ex GST": 880,
+  "dealer margin": 97.26999999999998
+ },
+ {
+  "*ItemCode": "100-RAM-114NBU",
+  "ItemName": "RAM Rod holder",
+  "Costs ex GST": 29.9,
+  "RRP EX GST": 49.95,
+  "RRP in GST": 54.94500000000001,
+  "Dealer Price ex GST": 44.955000000000005,
+  "dealer margin": 4.994999999999997
+ },
+ {
+  "*ItemCode": "100-Lashing Transom",
+  "ItemName": "Lashing Points Transom, 2pcs",
+  "Costs ex GST": 265,
+  "RRP EX GST": 325,
+  "RRP in GST": 357.50000000000006,
+  "Dealer Price ex GST": 282.5,
+  "dealer margin": 42.5
+ },
+ {
+  "*ItemCode": "100-SIMT",
+  "ItemName": "SIMRAD Transducer",
+  "Costs ex GST": 586.5,
+  "RRP EX GST": 625,
+  "RRP in GST": 687.5,
+  "Dealer Price ex GST": 605,
+  "dealer margin": 20
+ },
+ {
+  "*ItemCode": "100-  Sunshade Aft",
+  "ItemName": "T-top or Coupes only Sunshade Aft w carbon fibre p",
+  "Costs ex GST": 1895,
+  "RRP EX GST": 1995,
+  "RRP in GST": 2194.5,
+  "Dealer Price ex GST": 1915,
+  "dealer margin": 80
+ },
+ {
+  "*ItemCode": "100 - Sunshade Aft",
+  "ItemName": "100 - Sunshade Aft with carbon fibre poles",
+  "Costs ex GST": 1895,
+  "RRP EX GST": 1995,
+  "RRP in GST": 2194.5,
+  "Dealer Price ex GST": 1915,
+  "dealer margin": 80
+ },
+ {
+  "*ItemCode": "100-CLA-2SPE",
+  "ItemName": "Clarion 2x Additional Marine Speaker",
+  "Costs ex GST": 650,
+  "RRP EX GST": 695,
+  "RRP in GST": 764.5000000000001,
+  "Dealer Price ex GST": 670,
+  "dealer margin": 25
+ },
+ {
+  "*ItemCode": "827- Coupe DELIVERY",
+  "ItemName": "827C - Delivery Costs, including 150 litre fuel",
+  "Costs ex GST": 789,
+  "RRP EX GST": 904.55,
+  "RRP in GST": 995.005,
+  "Dealer Price ex GST": 810,
+  "dealer margin": 94.54999999999995
+ },
+ {
+  "*ItemCode": "100-RAM-RAP395PU",
+  "ItemName": "RAM Bait Board",
+  "Costs ex GST": 57.49999999999999,
+  "RRP EX GST": 89.95,
+  "RRP in GST": 98.945,
+  "Dealer Price ex GST": 80.955,
+  "dealer margin": 8.995000000000005
+ },
+ {
+  "*ItemCode": "100-  Sunshade Bow",
+  "ItemName": "T-top or Coupes only Sunshade Bow w carbon fibre p",
+  "Costs ex GST": 1895,
+  "RRP EX GST": 1995,
+  "RRP in GST": 2194.5,
+  "Dealer Price ex GST": 1925,
+  "dealer margin": 70
+ },
+ {
+  "*ItemCode": "767-DELI",
+  "ItemName": "767 - Delivery costs, including 100 litre fuel",
+  "Costs ex GST": 684.25,
+  "RRP EX GST": 795.45,
+  "RRP in GST": 874.9950000000001,
+  "Dealer Price ex GST": 715.9050000000001,
+  "dealer margin": 79.54499999999996
+ },
+ {
+  "*ItemCode": "647-COVER",
+  "ItemName": "647 - Console Cover 647 only",
+  "Costs ex GST": 545,
+  "RRP EX GST": 650,
+  "RRP in GST": 715.0000000000001,
+  "Dealer Price ex GST": 585,
+  "dealer margin": 65
+ },
+ {
+  "*ItemCode": "827 - Flooring",
+  "ItemName": "827 - Sea Deck soft flooring",
+  "Costs ex GST": 1965,
+  "RRP EX GST": 2222.73,
+  "RRP in GST": 2445.003,
+  "Dealer Price ex GST": 2010,
+  "dealer margin": 212.73000000000002
+ },
+ {
+  "*ItemCode": "827 Coupe Flooring",
+  "ItemName": "827C - Sea Deck soft flooring",
+  "Costs ex GST": 1965,
+  "RRP EX GST": 2222.73,
+  "RRP in GST": 2445.003,
+  "Dealer Price ex GST": 2010,
+  "dealer margin": 212.73000000000002
+ },
+ {
+  "*ItemCode": "707-DELI",
+  "ItemName": "707 - Delivery costs, including 50 litre fuel",
+  "Costs ex GST": 546.25,
+  "RRP EX GST": 659.1,
+  "RRP in GST": 725.0100000000001,
+  "Dealer Price ex GST": 593.19,
+  "dealer margin": 65.90999999999997
+ },
+ {
+  "*ItemCode": "767- Flooring",
+  "ItemName": "767 - Sea Deck soft flooring",
+  "Costs ex GST": 1802,
+  "RRP EX GST": 2031.82,
+  "RRP in GST": 2235.002,
+  "Dealer Price ex GST": 1850,
+  "dealer margin": 181.81999999999994
+ },
+ {
+  "*ItemCode": "907 Coupe Flooring",
+  "ItemName": "907C - Sea Deck soft flooring",
+  "Costs ex GST": 2175,
+  "RRP EX GST": 2413.64,
+  "RRP in GST": 2655.004,
+  "Dealer Price ex GST": 2225,
+  "dealer margin": 188.63999999999987
+ },
+ {
+  "*ItemCode": "907 Flooring",
+  "ItemName": "907 - Sea Deck soft flooring",
+  "Costs ex GST": 2175,
+  "RRP EX GST": 2413.64,
+  "RRP in GST": 2655.004,
+  "Dealer Price ex GST": 2225,
+  "dealer margin": 188.63999999999987
+ },
+ {
+  "*ItemCode": "647-DELI",
+  "ItemName": "647 - Delivery costs, including 50 litre fuel",
+  "Costs ex GST": 517.5,
+  "RRP EX GST": 631.82,
+  "RRP in GST": 695.0020000000001,
+  "Dealer Price ex GST": 568.638,
+  "dealer margin": 63.182000000000016
+ },
+ {
+  "*ItemCode": "100 - 20 HR",
+  "ItemName": "20 HOUR SERVICE",
+  "Costs ex GST": 517.5,
+  "RRP EX GST": 640,
+  "RRP in GST": 704,
+  "Dealer Price ex GST": 576,
+  "dealer margin": 64
+ },
+ {
+  "*ItemCode": "100-T TOP",
+  "ItemName": "T-top 2025 complete for open boats excluding 907",
+  "Costs ex GST": 5795,
+  "RRP EX GST": 6000,
+  "RRP in GST": 6600.000000000001,
+  "Dealer Price ex GST": 5865,
+  "dealer margin": 135
+ },
+ {
+  "*ItemCode": "Electric St",
+  "ItemName": "Electric Steering Mercury V10 Engines",
+  "Costs ex GST": 10925,
+  "RRP EX GST": 11975,
+  "RRP in GST": 13172.500000000002,
+  "Dealer Price ex GST": 11000,
+  "dealer margin": 975
+ },
+ {
+  "*ItemCode": "707 - Flooring",
+  "ItemName": "707 - Sea Deck soft flooring",
+  "Costs ex GST": 1827.5,
+  "RRP EX GST": 2031.82,
+  "RRP in GST": 2235.002,
+  "Dealer Price ex GST": 1905,
+  "dealer margin": 126.81999999999994
+ },
+ {
+  "*ItemCode": "100-SIM-12\"- NSX3012",
+  "ItemName": "SIMRAD NSX 3012, 12\"",
+  "Costs ex GST": 3745,
+  "RRP EX GST": 4035.45,
+  "RRP in GST": 4438.995,
+  "Dealer Price ex GST": 3825,
+  "dealer margin": 210.44999999999982
+ },
+ {
+  "*ItemCode": "100-REFR",
+  "ItemName": "Vitrifrido Marine Refrigerator",
+  "Costs ex GST": 1685,
+  "RRP EX GST": 1904.55,
+  "RRP in GST": 2095.005,
+  "Dealer Price ex GST": 1773,
+  "dealer margin": 131.54999999999995
+ },
+ {
+  "*ItemCode": "647 - Flooring",
+  "ItemName": "647 - Sea Deck soft flooring",
+  "Costs ex GST": 1494.9999999999998,
+  "RRP EX GST": 1759.09,
+  "RRP in GST": 1934.999,
+  "Dealer Price ex GST": 1583.181,
+  "dealer margin": 175.90899999999988
+ },
+ {
+  "*ItemCode": "100-BOWTHRUST",
+  "ItemName": "Bowthruster all models, standard with Coupes",
+  "Costs ex GST": 5675,
+  "RRP EX GST": 6000,
+  "RRP in GST": 6600.000000000001,
+  "Dealer Price ex GST": 5765,
+  "dealer margin": 235
+ },
+ {
+  "*ItemCode": "827 - Boat cover",
+  "ItemName": "827 - locally made heavy duty boat cover.",
+  "Costs ex GST": 5175,
+  "RRP EX GST": 5850,
+  "RRP in GST": 6435.000000000001,
+  "Dealer Price ex GST": 5265,
+  "dealer margin": 585
+ },
+ {
+  "*ItemCode": "647-HYDR",
+  "ItemName": "647 - Hydraulic Pump and hoses",
+  "Costs ex GST": 1150,
+  "RRP EX GST": 1395,
+  "RRP in GST": 1534.5000000000002,
+  "Dealer Price ex GST": 1255.5,
+  "dealer margin": 139.5
+ },
+ {
+  "*ItemCode": "707-HYDR",
+  "ItemName": "707 - Hydraulic Pump and hoses",
+  "Costs ex GST": 1150,
+  "RRP EX GST": 1395,
+  "RRP in GST": 1534.5000000000002,
+  "Dealer Price ex GST": 1255.5,
+  "dealer margin": 139.5
+ },
+ {
+  "*ItemCode": "100-CLARION+AMP",
+  "ItemName": "Clarion Stereo w. 4x Speaker w. 300W Amplifier",
+  "Costs ex GST": 1785,
+  "RRP EX GST": 2150,
+  "RRP in GST": 2365,
+  "Dealer Price ex GST": 1895,
+  "dealer margin": 255
+ },
+ {
+  "*ItemCode": "100-SIM-9\"- NSX3009",
+  "ItemName": "SIMRAD NSX 3009, 9\"",
+  "Costs ex GST": 2015,
+  "RRP EX GST": 2375,
+  "RRP in GST": 2612.5,
+  "Dealer Price ex GST": 2135,
+  "dealer margin": 240
+ },
+ {
+  "*ItemCode": "647-ANTI",
+  "ItemName": "647 - Antifouling",
+  "Costs ex GST": 1265,
+  "RRP EX GST": 1540.91,
+  "RRP in GST": 1695.0010000000002,
+  "Dealer Price ex GST": 1386.8190000000002,
+  "dealer margin": 154.0909999999999
+ },
+ {
+  "*ItemCode": "100-Sunbed Aft",
+  "ItemName": "Sunbed Aft for 707, 767, 827, 907",
+  "Costs ex GST": 885.4999999999999,
+  "RRP EX GST": 1149,
+  "RRP in GST": 1263.9,
+  "Dealer Price ex GST": 1034.1000000000001,
+  "dealer margin": 114.89999999999986
+ },
+ {
+  "*ItemCode": "907-T Top 907",
+  "ItemName": "907 T-top 2025 complete, 2ft longer",
+  "Costs ex GST": 5850,
+  "RRP EX GST": 6600,
+  "RRP in GST": 7260.000000000001,
+  "Dealer Price ex GST": 6000,
+  "dealer margin": 600
+ },
+ {
+  "*ItemCode": "647- ANCHOR",
+  "ItemName": "647- Anchor winch fitted, 647 only",
+  "Costs ex GST": 5645,
+  "RRP EX GST": 6000,
+  "RRP in GST": 6600.000000000001,
+  "Dealer Price ex GST": 5795,
+  "dealer margin": 205
+ },
+ {
+  "*ItemCode": "100, ANCHOR, recessed",
+  "ItemName": "Recessed Anchor, 707,767,827,827C,907,907C",
+  "Costs ex GST": 6000,
+  "RRP EX GST": 6600,
+  "RRP in GST": 7260.000000000001,
+  "Dealer Price ex GST": 6150,
+  "dealer margin": 450
+ },
+ {
+  "*ItemCode": "767-ANTI",
+  "ItemName": "767 - Antifouling",
+  "Costs ex GST": 1477.7499999999998,
+  "RRP EX GST": 1813.64,
+  "RRP in GST": 1995.0040000000004,
+  "Dealer Price ex GST": 1632.276,
+  "dealer margin": 181.36400000000003
+ },
+ {
+  "*ItemCode": "100 - Bimini",
+  "ItemName": "647 or 707 Powder coated Black Bimini",
+  "Costs ex GST": 3162.4999999999995,
+  "RRP EX GST": 3695,
+  "RRP in GST": 4064.5000000000005,
+  "Dealer Price ex GST": 3325.5,
+  "dealer margin": 369.5
+ },
+ {
+  "*ItemCode": "707-ANTI",
+  "ItemName": "707 - Antifouling",
+  "Costs ex GST": 1357,
+  "RRP EX GST": 1722.73,
+  "RRP in GST": 1895.0030000000002,
+  "Dealer Price ex GST": 1550.457,
+  "dealer margin": 172.2729999999999
+ },
+ {
+  "*ItemCode": "907 - Antifouling",
+  "ItemName": "907 - 907 C Antifouling",
+  "Costs ex GST": 1724.9999999999998,
+  "RRP EX GST": 2136.36,
+  "RRP in GST": 2349.9960000000005,
+  "Dealer Price ex GST": 1922.7240000000002,
+  "dealer margin": 213.63599999999997
+ },
+ {
+  "*ItemCode": "100-SIM 3015",
+  "ItemName": "SIMRAD NSX 3015 Ultrawide with Active Imaging",
+  "Costs ex GST": 5195,
+  "RRP EX GST": 5850,
+  "RRP in GST": 6435.000000000001,
+  "Dealer Price ex GST": 5395,
+  "dealer margin": 455
+ },
+ {
+  "*ItemCode": "827-ANTI",
+  "ItemName": "827 - 827 C Antifouling",
+  "Costs ex GST": 1552.4999999999998,
+  "RRP EX GST": 1995.45,
+  "RRP in GST": 2194.9950000000003,
+  "Dealer Price ex GST": 1795.905,
+  "dealer margin": 199.54500000000007
+ },
+ {
+  "*ItemCode": "Rigging V10 Verado",
+  "ItemName": "Mercury Rigging V10",
+  "Costs ex GST": 8900,
+  "RRP EX GST": 9650,
+  "RRP in GST": 10615,
+  "Dealer Price ex GST": 9167.5,
+  "dealer margin": 482.5
+ },
+ {
+  "*ItemCode": "100-TABL",
+  "ItemName": "Table Twin alu posts, cup holders",
+  "Costs ex GST": 776.2499999999999,
+  "RRP EX GST": 1177.27,
+  "RRP in GST": 1294.997,
+  "Dealer Price ex GST": 1059.5430000000001,
+  "dealer margin": 117.72699999999986
+ },
+ {
+  "*ItemCode": "SEADECK",
+  "ItemName": "SEADEK, optional colours",
+  "Costs ex GST": 402.49999999999994,
+  "RRP EX GST": 795,
+  "RRP in GST": 874.5000000000001,
+  "Dealer Price ex GST": 715.5,
+  "dealer margin": 79.5
+ },
+ {
+  "*ItemCode": "100-SIM-RADAR HALO",
+  "ItemName": "SIMRAD RADAR HALO 20+, 827C and 907C",
+  "Costs ex GST": 5295,
+  "RRP EX GST": 7500,
+  "RRP in GST": 8250,
+  "Dealer Price ex GST": 5750,
+  "dealer margin": 1750
+ },
+ {
+  "*ItemCode": "Rigging V6",
+  "ItemName": "Mercury Rigging V6",
+  "Costs ex GST": 6727,
+  "RRP EX GST": 7595,
+  "RRP in GST": 8354.5,
+  "Dealer Price ex GST": 7215.25,
+  "dealer margin": 379.75
+ },
+ {
+  "*ItemCode": "Rigging V8-200 and 250HP",
+  "ItemName": "Mercury V8 200 and 250 HP, complete install",
+  "Costs ex GST": 6727,
+  "RRP EX GST": 7595,
+  "RRP in GST": 8354.5,
+  "Dealer Price ex GST": 7215.25,
+  "dealer margin": 379.75
+ },
+ {
+  "*ItemCode": "100 Fish-RAM",
+  "ItemName": "RAM Fishing: 4xRodholder, 1xBaitboard, Installed",
+  "Costs ex GST": 459.99999999999994,
+  "RRP EX GST": 1195,
+  "RRP in GST": 1314.5,
+  "Dealer Price ex GST": 1075.5,
+  "dealer margin": 119.5
+ },
+ {
+  "*ItemCode": "Rigging V8 Verado",
+  "ItemName": "Mercury Verado V8 250 300HP complete install",
+  "Costs ex GST": 7455,
+  "RRP EX GST": 8950,
+  "RRP in GST": 9845,
+  "Dealer Price ex GST": 8502.5,
+  "dealer margin": 447.5
+ },
+ {
+  "*ItemCode": "Rigging V8 450R Verado",
+  "ItemName": "Mercury Verado V8 450R complete install",
+  "Costs ex GST": 8625,
+  "RRP EX GST": 10995,
+  "RRP in GST": 12094.500000000002,
+  "Dealer Price ex GST": 9895.5,
+  "dealer margin": 1099.5
+ },
+ {
+  "*ItemCode": "MERC-150 HP",
+  "ItemName": "Mercury 150HP XS",
+  "Costs ex GST": 18091,
+  "RRP EX GST": 20804.55,
+  "RRP in GST": 22885.005,
+  "Dealer Price ex GST": 19764.3225,
+  "dealer margin": 1040.2275000000009
+ },
+ {
+  "*ItemCode": "MERC-150 PRO XS",
+  "ItemName": "Mercury, 150HP PRO XS, Active trim",
+  "Costs ex GST": 19057,
+  "RRP EX GST": 21915.45,
+  "RRP in GST": 24106.995000000003,
+  "Dealer Price ex GST": 20819.677499999998,
+  "dealer margin": 1095.7725000000028
+ },
+ {
+  "*ItemCode": "MERC-225HP-V6-DTS",
+  "ItemName": "Mercury V6 - 225HP, DTS",
+  "Costs ex GST": 25348,
+  "RRP EX GST": 28750,
+  "RRP in GST": 31625.000000000004,
+  "Dealer Price ex GST": 27312.5,
+  "dealer margin": 1437.5
+ },
+ {
+  "*ItemCode": "MERC-200HP-V6-DTS",
+  "ItemName": "Mercury V6 - 200HP, dts",
+  "Costs ex GST": 23211,
+  "RRP EX GST": 26692.73,
+  "RRP in GST": 29362.003,
+  "Dealer Price ex GST": 25358.0935,
+  "dealer margin": 1334.6365000000005
+ },
+ {
+  "*ItemCode": "MERC- V8 - 200HP - Pro XS",
+  "ItemName": "Mercury V8 -200HP - Pro XS",
+  "Costs ex GST": 24799,
+  "RRP EX GST": 28519.1,
+  "RRP in GST": 31371.010000000002,
+  "Dealer Price ex GST": 27093.144999999997,
+  "dealer margin": 1425.9550000000017
+ },
+ {
+  "*ItemCode": "Merc-225HP-V8-Pro XS",
+  "ItemName": "Mercury V8 - 225HP, Pro XS",
+  "Costs ex GST": 28500,
+  "RRP EX GST": 32775.45,
+  "RRP in GST": 36052.995,
+  "Dealer Price ex GST": 31136.677499999994,
+  "dealer margin": 1638.7725000000028
+ },
+ {
+  "*ItemCode": "MERC-250HP-V6",
+  "ItemName": "Mercury V6, with Active Trim - 250HP",
+  "Costs ex GST": 28886,
+  "RRP EX GST": 33218.9,
+  "RRP in GST": 36540.79000000001,
+  "Dealer Price ex GST": 31557.954999999998,
+  "dealer margin": 1660.9450000000033
+ },
+ {
+  "*ItemCode": "MERC-V8-250HP PRO XS",
+  "ItemName": "Mercury V8 PRO XS - 250HP",
+  "Costs ex GST": 29847,
+  "RRP EX GST": 34323.64,
+  "RRP in GST": 37756.004,
+  "Dealer Price ex GST": 32607.458,
+  "dealer margin": 1716.1820000000007
+ },
+ {
+  "*ItemCode": "MERC-V8-250HP Verado",
+  "ItemName": "Mercury V8 Verado 250HP",
+  "Costs ex GST": 30519,
+  "RRP EX GST": 35097.27,
+  "RRP in GST": 38606.997,
+  "Dealer Price ex GST": 33342.4065,
+  "dealer margin": 1754.8634999999995
+ },
+ {
+  "*ItemCode": "MERC-300HP-V8 Pro XS",
+  "ItemName": "Mercury V8 - 300HP Pro XS, Active Trim",
+  "Costs ex GST": 31658,
+  "RRP EX GST": 36406.7,
+  "RRP in GST": 40047.37,
+  "Dealer Price ex GST": 34586.365,
+  "dealer margin": 1820.3349999999991
+ },
+ {
+  "*ItemCode": "Rigging V8 450R Verado",
+  "ItemName": "Mercury Verado V8 450R complete install",
+  "Costs ex GST": 7500,
+  "RRP EX GST": 10995,
+  "RRP in GST": 12094.500000000002,
+  "Dealer Price ex GST": 10445.25,
+  "dealer margin": 549.75
+ },
+ {
+  "*ItemCode": "MERC-V8-300HP Verado",
+  "ItemName": "Mercury V8 Verado 300HP for 767 and 827",
+  "Costs ex GST": 33311,
+  "RRP EX GST": 38307.27,
+  "RRP in GST": 42137.997,
+  "Dealer Price ex GST": 36391.9065,
+  "dealer margin": 1915.3634999999995
+ },
+ {
+  "*ItemCode": "MERC 300 XL",
+  "ItemName": "Mercury V8 - 300HP XL Active Trim",
+  "Costs ex GST": 31369,
+  "RRP EX GST": 36406.7,
+  "RRP in GST": 40047.37,
+  "Dealer Price ex GST": 34586.365,
+  "dealer margin": 1820.3349999999991
+ },
+ {
+  "*ItemCode": "MERC-V10-350HP Verado",
+  "ItemName": "Mercury V10 Verado 350 HP",
+  "Costs ex GST": 37469,
+  "RRP EX GST": 44735.45,
+  "RRP in GST": 49208.995,
+  "Dealer Price ex GST": 42498.6775,
+  "dealer margin": 2236.772499999999
+ },
+ {
+  "*ItemCode": "MERC-V10-400HP Verado",
+  "ItemName": "Mercury V10 Verado 400HP",
+  "Costs ex GST": 40447,
+  "RRP EX GST": 48185.45,
+  "RRP in GST": 53003.995,
+  "Dealer Price ex GST": 45776.1775,
+  "dealer margin": 2409.272499999999
+ },
+ {
+  "*ItemCode": "MERC-V8-450 Racing",
+  "ItemName": "Mercury V8-450HP Racing",
+  "Costs ex GST": 65000,
+  "RRP EX GST": 74750,
+  "RRP in GST": 82225,
+  "Dealer Price ex GST": 71012.5,
+  "dealer margin": 3737.5
+ },
+ {
+  "*ItemCode": "MERC-V10-400HP Racing",
+  "ItemName": "Mercury V10-400HP Racing",
+  "Costs ex GST": 45650,
+  "RRP EX GST": 55251.82,
+  "RRP in GST": 60777.00200000001,
+  "Dealer Price ex GST": 52489.229,
+  "dealer margin": 2762.5910000000003
+ },
+ {
+  "*ItemCode": "MERC-V8-500 Racing",
+  "ItemName": "Mercury V8 - 500HP Racing",
+  "Costs ex GST": 75650,
+  "RRP EX GST": 86997.27,
+  "RRP in GST": 95696.99700000002,
+  "Dealer Price ex GST": 82647.4065,
+  "dealer margin": 4349.863500000007
+ },
+ {
+  "*ItemCode": "windlass`",
+  "ItemName": "Windlass anchor, Dashboard controlled",
+  "Costs ex GST": 6450,
+  "RRP EX GST": 7995,
+  "RRP in GST": 8794.5,
+  "Dealer Price ex GST": 7125,
+  "dealer margin": 870
+ },
+ {
+  "*ItemCode": "647-BOAT\/B",
+  "ItemName": "647 - IRON Boat in Black",
+  "Costs ex GST": 71854.29999999999,
+  "RRP EX GST": 98177.27,
+  "RRP in GST": 107994.99700000002,
+  "Dealer Price ex GST": 87377.7703,
+  "dealer margin": 10799.4997
+ },
+ {
+  "*ItemCode": "647-BOAT\/G",
+  "ItemName": "647 - IRON Boat in Grey",
+  "Costs ex GST": 71854.29999999999,
+  "RRP EX GST": 98177.27,
+  "RRP in GST": 107994.99700000002,
+  "Dealer Price ex GST": 87377.7703,
+  "dealer margin": 10799.4997
+ },
+ {
+  "*ItemCode": "647-BOAT\/W",
+  "ItemName": "647 - IRON Boat in White",
+  "Costs ex GST": 71854.29999999999,
+  "RRP EX GST": 98177.27,
+  "RRP in GST": 107994.99700000002,
+  "Dealer Price ex GST": 87377.7703,
+  "dealer margin": 10799.4997
+ },
+ {
+  "*ItemCode": "707-BOAT\/B",
+  "ItemName": "707 - IRON Boat in Black",
+  "Costs ex GST": 84504.29999999999,
+  "RRP EX GST": 118831.82,
+  "RRP in GST": 130715.00200000002,
+  "Dealer Price ex GST": 104572.0016,
+  "dealer margin": 14259.818400000004
+ },
+ {
+  "*ItemCode": "707-BOAT\/G",
+  "ItemName": "707 - IRON Boat in Grey",
+  "Costs ex GST": 84504.29999999999,
+  "RRP EX GST": 118831.82,
+  "RRP in GST": 130715.00200000002,
+  "Dealer Price ex GST": 104572.0016,
+  "dealer margin": 14259.818400000004
+ },
+ {
+  "*ItemCode": "707-BOAT\/Wh",
+  "ItemName": "707 - IRON Boat in White",
+  "Costs ex GST": 84504.29999999999,
+  "RRP EX GST": 118831.82,
+  "RRP in GST": 130715.00200000002,
+  "Dealer Price ex GST": 104572.0016,
+  "dealer margin": 14259.818400000004
+ },
+ {
+  "*ItemCode": "767-BOAT\/B",
+  "ItemName": "767 - IRON Boat in Black",
+  "Costs ex GST": 92081.65,
+  "RRP EX GST": 139209.09,
+  "RRP in GST": 153129.999,
+  "Dealer Price ex GST": 122503.99919999999,
+  "dealer margin": 16705.090800000005
+ },
+ {
+  "*ItemCode": "767-BOAT\/G",
+  "ItemName": "767 - IRON Boat in Grey",
+  "Costs ex GST": 92081.65,
+  "RRP EX GST": 139209.09,
+  "RRP in GST": 153129.999,
+  "Dealer Price ex GST": 122503.99919999999,
+  "dealer margin": 16705.090800000005
+ },
+ {
+  "*ItemCode": "767-BOAT\/W",
+  "ItemName": "767 - IRON Boat in White",
+  "Costs ex GST": 92081.65,
+  "RRP EX GST": 139209.09,
+  "RRP in GST": 153129.999,
+  "Dealer Price ex GST": 122503.99919999999,
+  "dealer margin": 16705.090800000005
+ },
+ {
+  "*ItemCode": "827-BOAT\/B",
+  "ItemName": "827 - IRON Boat in Black",
+  "Costs ex GST": 101137.9,
+  "RRP EX GST": 152745.46,
+  "RRP in GST": 168020.006,
+  "Dealer Price ex GST": 132888.5502,
+  "dealer margin": 19856.909799999994
+ },
+ {
+  "*ItemCode": "827-BOAT\/G",
+  "ItemName": "827 - IRON Boat in Grey",
+  "Costs ex GST": 101137.9,
+  "RRP EX GST": 152745.46,
+  "RRP in GST": 168020.006,
+  "Dealer Price ex GST": 132888.5502,
+  "dealer margin": 19856.909799999994
+ },
+ {
+  "*ItemCode": "827-BOAT\/W",
+  "ItemName": "827 - IRON Boat in White",
+  "Costs ex GST": 101137.9,
+  "RRP EX GST": 152745.46,
+  "RRP in GST": 168020.006,
+  "Dealer Price ex GST": 132888.5502,
+  "dealer margin": 19856.909799999994
+ },
+ {
+  "*ItemCode": "907-BOAT\/B",
+  "ItemName": "907 - IRON Boat in Black",
+  "Costs ex GST": 113212.9,
+  "RRP EX GST": 179568.18,
+  "RRP in GST": 197524.99800000002,
+  "Dealer Price ex GST": 154428.6348,
+  "dealer margin": 25139.545199999993
+ },
+ {
+  "*ItemCode": "907-BOAT\/G",
+  "ItemName": "907 - IRON Boat in Grey",
+  "Costs ex GST": 113212.9,
+  "RRP EX GST": 179568.18,
+  "RRP in GST": 197524.99800000002,
+  "Dealer Price ex GST": 154428.6348,
+  "dealer margin": 25139.545199999993
+ },
+ {
+  "*ItemCode": "907-BOAT\/W",
+  "ItemName": "907 - IRON Boat in White",
+  "Costs ex GST": 113212.9,
+  "RRP EX GST": 179568.18,
+  "RRP in GST": 197524.99800000002,
+  "Dealer Price ex GST": 154428.6348,
+  "dealer margin": 25139.545199999993
+ },
+ {
+  "*ItemCode": "907 COUPE\/B",
+  "ItemName": "907 - C - IRON 907 Coupe in Black, w bowthruster",
+  "Costs ex GST": 131900.4,
+  "RRP EX GST": 205536.36,
+  "RRP in GST": 226089.996,
+  "Dealer Price ex GST": 176761.2696,
+  "dealer margin": 28775.090399999986
+ },
+ {
+  "*ItemCode": "907 COUPE\/G",
+  "ItemName": "907 - C - IRON 907 Coupe in Grey, w bowthruster",
+  "Costs ex GST": 131900.4,
+  "RRP EX GST": 205536.36,
+  "RRP in GST": 226089.996,
+  "Dealer Price ex GST": 176761.2696,
+  "dealer margin": 28775.090399999986
+ },
+ {
+  "*ItemCode": "907 COUPE\/W",
+  "ItemName": "907 - C - IRON 907 Coupe in White, w bowthruster",
+  "Costs ex GST": 131900.4,
+  "RRP EX GST": 205536.36,
+  "RRP in GST": 226089.996,
+  "Dealer Price ex GST": 176761.2696,
+  "dealer margin": 28775.090399999986
+ },
+ {
+  "*ItemCode": "827 COUPE\/B",
+  "ItemName": "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+  "Costs ex GST": 117874.99999999999,
+  "RRP EX GST": 188586.36,
+  "RRP in GST": 207444.996,
+  "Dealer Price ex GST": 164070.13319999998,
+  "dealer margin": 24516.226800000004
+ },
+ {
+  "*ItemCode": "827 COUPE\/G",
+  "ItemName": "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+  "Costs ex GST": 117874.99999999999,
+  "RRP EX GST": 188586.36,
+  "RRP in GST": 207444.996,
+  "Dealer Price ex GST": 164070.13319999998,
+  "dealer margin": 24516.226800000004
+ },
+ {
+  "*ItemCode": "827 COUPE\/W",
+  "ItemName": "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+  "Costs ex GST": 117874.99999999999,
+  "RRP EX GST": 188586.36,
+  "RRP in GST": 207444.996,
+  "Dealer Price ex GST": 164070.13319999998,
+  "dealer margin": 24516.226800000004
+ }
+]
