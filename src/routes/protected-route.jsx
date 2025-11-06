@@ -1,7 +1,7 @@
-
 import { Navigate } from "react-router-dom";
 
-export default function ProtectedRoute({ children }) {
-  const auth = localStorage.getItem("auth");
-  return auth === "dealer" ? children : <Navigate to="/" />;
+export default function ProtectedRoute({ children, allowedRoles = [] }) {
+  const role = localStorage.getItem("role");
+
+  return allowedRoles.includes(role) ? children : <Navigate to="/" />;
 }

@@ -14,33 +14,28 @@ export const useInventory = () => {
 };
 
 export const InventoryProvider = ({ children }) => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [selectedItems, setSelectedItems] = useState([]);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedSubcategory, setSelectedSubcategory] = useState('');
 
-  // Load selected items from localStorage on component mount
-  useEffect(() => {
-    const savedItems = localStorage.getItem('selectedInventoryItems');
-    console.log('Loading from localStorage:', savedItems); // Debug log
-    if (savedItems) {
-      try {
-        const parsedItems = JSON.parse(savedItems);
-        setSelectedItems(parsedItems);
-        console.log('Loaded items:', parsedItems); // Debug log
-      } catch (error) {
-        console.error('Error parsing saved items:', error);
-        setSelectedItems([]);
-      }
+useEffect(() => {
+  const savedItems = localStorage.getItem('selectedInventoryItems');
+  if (savedItems) {
+    try {
+      const parsedItems = JSON.parse(savedItems);
+      setSelectedItems(parsedItems);
+    } catch {
+      setSelectedItems([]);
     }
-  }, []);
+  }
+  setHasLoaded(true);
+}, []);
 
-  // Save selected items to localStorage whenever they change
-  useEffect(() => {
-    console.log('Saving to localStorage:', selectedItems); // Debug log
-    localStorage.setItem('selectedInventoryItems', JSON.stringify(selectedItems));
-  }, [selectedItems]);
-
+useEffect(() => {
+  if (!hasLoaded) return; // wait until data is loaded before saving
+  localStorage.setItem('selectedInventoryItems', JSON.stringify(selectedItems));
+}, [selectedItems, hasLoaded]);
   const addItem = (item) => {
     console.log('Adding item:', item); // Debug log
     setSelectedItems(prev => {
@@ -69,7 +64,7 @@ export const InventoryProvider = ({ children }) => {
     console.log('Clearing all items'); // Debug log
     setSelectedItems([]);
     localStorage.removeItem('selectedInventoryItems');
-    if(selectedItems.length===0){
+    if (selectedItems.length === 0) {
       console.log("hello")
       navigate('/home')
     }
@@ -82,8 +77,6 @@ export const InventoryProvider = ({ children }) => {
     clearAllItems,
     selectedCategory,
     setSelectedCategory,
-    selectedSubcategory,
-    setSelectedSubcategory,
     categories: inventoryCategories
   };
 

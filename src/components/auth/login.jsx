@@ -4,22 +4,57 @@ import Logo from '../../assets/logo.png'
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { Loader2 } from 'lucide-react';
+import { authService } from "../../serices/auth-service";
 // 🖥️ Main Login Screen
 export default function LoginScreen() {
   const navigate = useNavigate();
   const [passcode, setPasscode] = useState("");
   const [email, setEmail] = useState('')
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const [loading, setLoading] = useState(false);
 
-    if (passcode === "dealer123" && email==='dealer@gmail.com') {
-      localStorage.setItem("auth", "dealer");
-      navigate("/dealer");
-      toast.success("Dealer Login Successfully")
-    } else {
-      toast.error("Invalid passcode!");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      // Login with Firebase Auth
+      const user = await authService.login(email, passcode);
+
+      // Get user data from Firestore
+      const userData = await authService.getUserData(user.uid);
+
+      if (userData) {
+        console.log(userData, "user data")
+        // Store user info in localStorage or context
+        localStorage.setItem("role", userData?.role);
+        localStorage.setItem("name", userData?.name)
+        localStorage.setItem("email", userData?.email)
+        localStorage.setItem("id", userData?.id)
+
+        toast.success(`Welcome back, ${userData.name || userData.email}!`);
+
+        // Navigate based on role
+       if(userData.role==='admin'){
+        navigate('/admin')
+       }else if (userData.role==='dealer'){
+        navigate("/dealer")
+       }else{
+        navigate('/home')
+       }
+        
+      } else {
+        toast.error("User data not found!");
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      toast.error(error.message || "Login failed!");
+    } finally {
+      setLoading(false);
     }
   };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
@@ -51,11 +86,20 @@ export default function LoginScreen() {
             showToggle
           />
 
+
           <button
             type="submit"
-            className="w-full py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition"
+            disabled={loading}
+            className="w-full py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-medium transition flex items-center justify-center"
           >
-            Login
+            {loading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                Signing in...
+              </>
+            ) : (
+              'Sign In'
+            )}
           </button>
         </form>
 

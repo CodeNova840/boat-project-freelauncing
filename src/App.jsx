@@ -7,6 +7,7 @@ import DealersHome from './pages/dealer-home'
 import { Bounce, ToastContainer } from 'react-toastify'
 import Checkout from './pages/checkout'
 import { InventoryProvider } from './context/inventory-context';
+import AdminLayout from './layouts/admin-layout'
 function App() {
 
   return (
@@ -15,10 +16,14 @@ function App() {
         <Route path='/' element={<LoginScreen />} />
         <Route path="/home" element={<Home />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/admin/*" element={
+          <ProtectedRoute allowedRoles={["admin"]}>
+            <AdminLayout />
+          </ProtectedRoute>} />
         <Route
           path="/dealer"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute allowedRoles={["dealer"]}>
               <DealersHome />
             </ProtectedRoute>
           }
