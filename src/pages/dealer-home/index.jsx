@@ -32,7 +32,7 @@ const DealersHome = () => {
   }, [categories, setSelectedCategory]);
 
   const getDefaultDisplayText = (category) => {
-    switch(category) {
+    switch (category) {
       case "IRON 647": return "IRON 647 - Mercury 150 V6 Pro XS";
       case "IRON 707": return "IRON 707 - Mercury 200 V6 DTS";
       case "IRON 767": return "IRON 767 - Mercury 250 V8 PROXS";
@@ -58,7 +58,7 @@ const DealersHome = () => {
     const selectedOption = e.target.options[e.target.selectedIndex];
     const displayText = selectedOption.text;
     const categoryValue = selectedOption.getAttribute('data-category');
-    
+
     setSelectedDisplay(displayText);
     setSelectedCategory(categoryValue);
     // Save selected category to localStorage
@@ -209,7 +209,7 @@ const DealersHome = () => {
                               </option>
                             </optgroup>
                           );
-                        }else if (label === "IRON 827 Coupe") {
+                        } else if (label === "IRON 827 Coupe") {
                           return (
                             <optgroup key={category} label={label} className="font-bold text-gray-900 dark:text-white">
                               <option value="IRON 827 COUPE - Mercury 250 V8 Pro-XS" data-category="IRON 827" className="py-2 ml-4">
@@ -385,6 +385,9 @@ const DealersHome = () => {
             <div className="fixed bottom-6 right-6 z-10 animate-bounce">
               <Link
                 to="/checkout"
+                state={{
+                  selectedDisplay: selectedDisplay,
+                }}
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-xl shadow-2xl font-semibold flex items-center space-x-3 transition-all duration-300 transform hover:scale-105"
               >
                 <span>Proceed to Checkout</span>

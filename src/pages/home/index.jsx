@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import DashboardLayout from "../../layouts/dashboard-layouts";
 import { useInventory } from "../../context/inventory-context";
 import ReceiptModal from "../../components/modal/receipt";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   const {
@@ -126,10 +125,6 @@ const Home = () => {
     item.itemCode.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
   return (
     <DashboardLayout>
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-all duration-500">
@@ -178,7 +173,7 @@ const Home = () => {
                     <select
                       value={selectedDisplay}
                       onChange={handleCategoryChange}
-                      className="w-full p-5 text-lg bg-white/50 dark:bg-gray-700/50 border-2 border-gray-300/50 dark:border-gray-600/50 rounded-2xl shadow-lg focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 dark:focus:ring-blue-400/30 transition-all duration-300 appearance-none cursor-pointer focus:outline-none text-gray-900 dark:text-white backdrop-blur-sm group-hover:border-blue-400 dark:group-hover:border-blue-500 font-semibold h-16"
+                      className="w-full px-5 text-lg bg-white/50 dark:bg-gray-700/50 border-2 border-gray-300/50 dark:border-gray-600/50 rounded-2xl shadow-lg focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 dark:focus:ring-blue-400/30 transition-all duration-300 appearance-none cursor-pointer focus:outline-none text-gray-900 dark:text-white backdrop-blur-sm group-hover:border-blue-400 dark:group-hover:border-blue-500 font-semibold h-16"
                     >
                       <option value="" className="text-gray-500 text-lg">Choose your boat model</option>
                       {Object.keys(categories).map(category => {
@@ -549,6 +544,7 @@ const Home = () => {
           <ReceiptModal 
             setShowReceipt={setShowReceipt}
             selectedItems={selectedItems}
+            selectedDisplay={selectedDisplay}
             totals={{
               totalRRP: totals.totalRRP
             }}

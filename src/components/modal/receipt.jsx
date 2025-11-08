@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { jsPDF } from 'jspdf';
 
-const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
+const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => {
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
@@ -26,7 +26,7 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
       toastr[type](message);
     } else {
       // Fallback to browser alert if toastr is not available
-      alert(message);
+      toastr.error(message);
     }
   };
 
@@ -393,7 +393,7 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
 
               {/* Items Table - Responsive */}
               <div className="mb-6">
-                <h3 className="text-base sm:text-lg font-semibold mb-3 text-gray-700">Items</h3>
+                <h3 className="text-base sm:text-lg font-semibold mb-3 text-gray-700">{selectedDisplay? selectedDisplay:"Items"}</h3>
                 <div className="overflow-x-auto">
                   <div className="min-w-full inline-block align-middle">
                     <div className="overflow-hidden">
