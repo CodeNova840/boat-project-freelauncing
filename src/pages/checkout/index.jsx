@@ -32,26 +32,81 @@ const Checkout = () => {
 
   const totals = calculateTotals();
 
-  if (selectedItems.length === 0) {
-    return (
-      <div className="max-w-4xl mx-auto p-6">
-        <div className="text-center py-12">
-          <h2 className="text-2xl font-bold text-gray-600 mb-4">
-            No Items Selected
-          </h2>
-          <p className="text-gray-500 mb-6">
-            Please go back and select some items from the inventory.
-          </p>
-          <Link
-            to="/dealer"
-            className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors duration-200 font-medium"
-          >
-            Back to Inventory
-          </Link>
+if (selectedItems.length === 0) {
+  return (
+    <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
+      <div className="max-w-2xl w-full">
+        {/* 3D Card Effect */}
+        <div className="relative group cursor-pointer">
+          {/* Card Shadow */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+          
+          {/* Main Card */}
+          <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/20 dark:border-gray-700/50 rounded-2xl p-12 shadow-2xl transform group-hover:scale-[1.02] transition-all duration-500">
+            
+            {/* Floating Icons */}
+            <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg transform rotate-12">
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+              </svg>
+            </div>
+
+            <div className="text-center space-y-8">
+              {/* Animated Illustration */}
+              <div className="relative mx-auto w-48 h-48">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full transform rotate-6 opacity-20 animate-pulse"></div>
+                <div className="absolute inset-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-2xl flex items-center justify-center transform -rotate-6 transition duration-500 group-hover:rotate-0">
+                  <svg className="w-20 h-20 text-white transform group-hover:scale-110 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="space-y-4">
+                <h1 className="text-5xl font-black bg-gradient-to-r from-gray-800 via-blue-600 to-purple-600 dark:from-white dark:via-blue-300 dark:to-purple-400 bg-clip-text text-transparent">
+                  Start Building
+                </h1>
+                <p className="text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                  Your collection is empty. Let's find some amazing items that match your style and needs.
+                </p>
+              </div>
+
+              {/* Action Button */}
+              <Link
+                to="/dealer"
+                className="inline-flex items-center gap-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-extrabold text-lg px-12 py-5 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg group/btn"
+              >
+                <span>Browse Premium Items</span>
+                <svg className="w-5 h-5 transform group-hover/btn:translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats Bar */}
+        <div className="flex justify-center mt-12 gap-8 text-center">
+          {[
+            { label: 'Premium Items', value: '1K+' },
+            { label: 'Categories', value: '50+' },
+            { label: 'Instant Access', value: '24/7' }
+          ].map((stat, index) => (
+            <div key={index} className="text-center transform hover:scale-110 transition duration-300">
+              <div className="text-2xl font-black bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                {stat.value}
+              </div>
+              <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   return (
     <div className="max-w-6xl mx-auto p-6">

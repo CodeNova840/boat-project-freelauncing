@@ -20,8 +20,53 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
     }));
   };
 
+  const showToast = (message, type = 'error') => {
+    // Check if toastr is available (you might need to import toastr or use another notification library)
+    if (typeof toastr !== 'undefined') {
+      toastr[type](message);
+    } else {
+      // Fallback to browser alert if toastr is not available
+      alert(message);
+    }
+  };
+
+  const validateUserInfo = () => {
+    const { name, email, phoneNumber } = userInfo;
+    
+    if (!name.trim()) {
+      showToast('Name is required');
+      return false;
+    }
+    
+    if (!email.trim()) {
+      showToast('Email is required');
+      return false;
+    }
+    
+    if (!phoneNumber.trim()) {
+      showToast('Phone number is required');
+      return false;
+    }
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showToast('Please enter a valid email address');
+      return false;
+    }
+    
+    // Basic phone number validation (at least 10 digits)
+    const phoneRegex = /^\d{10,}$/;
+    const cleanPhone = phoneNumber.replace(/\D/g, '');
+    if (!phoneRegex.test(cleanPhone)) {
+      showToast('Please enter a valid phone number (at least 10 digits)');
+      return false;
+    }
+    
+    return true;
+  };
+
   const formatCurrency = (amount) => {
-    // Round to nearest cent for retail users
     const roundedAmount = isDealer ? amount : Math.round(amount * 100) / 100;
     return new Intl.NumberFormat('en-AU', {
       style: 'currency',
@@ -30,6 +75,11 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
   };
 
   const downloadPDF = () => {
+    // Validate user info before downloading
+    if (!validateUserInfo()) {
+      return;
+    }
+
     const doc = new jsPDF({
       orientation: 'landscape',
       unit: 'mm',
@@ -68,7 +118,6 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
       doc.text(`Total: ${formatCurrency(totals.totalDealerPrice || totals.totalRRP)}`, summaryX, 68);
     } else {
       doc.setFont(undefined, 'bold');
-      // Round RRP total for retail users
       const roundedTotal = Math.round(totals.totalRRP * 100) / 100;
       doc.text(`Total: ${formatCurrency(roundedTotal)}`, summaryX, 54);
     }
@@ -148,7 +197,6 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
         doc.text(formatCurrency(item.dealerMargin || 0), columns[2].x, yPosition + 3);
         doc.text(formatCurrency(item.dealerGST || 0), columns[3].x, yPosition + 3);
       } else {
-        // Round RRP for retail users
         const roundedRRP = Math.round(item.rrpInGST * 100) / 100;
         doc.text(formatCurrency(roundedRRP), columns[2].x, yPosition + 3);
       }
@@ -176,16 +224,14 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
     doc.save('quote.pdf');
   };
 
-  // Get the display price based on role - round RRP for retail
   const getDisplayPrice = (item) => {
     if (isDealer) {
-      return item.dealerGST || 0;
+      return item.rrpInGST || 0;
     } else {
       return Math.round(item.rrpInGST * 100) / 100;
     }
   };
 
-  // Get the total display price based on role - round RRP total for retail
   const getDisplayTotal = () => {
     if (isDealer) {
       return totals.totalDealerPrice || totals.totalRRP;
@@ -194,16 +240,30 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
     }
   };
 
+  // Check if all required fields are filled
+  const isDownloadDisabled = () => {
+    const { name, email, phoneNumber } = userInfo;
+    return !name.trim() || !email.trim() || !phoneNumber.trim();
+  };
+
+  const handleDownloadClick = () => {
+    if (isDownloadDisabled()) {
+      showToast('Please fill in all required fields (name, email, and phone number) before downloading');
+      return;
+    }
+    downloadPDF();
+  };
+
   return (
     <>
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-        <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-          <div className="p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-800">Customer Quote</h2>
+        <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+          <div className="p-4 sm:p-6">
+            <div className="flex justify-between items-center mb-4 sm:mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Customer Quote</h2>
               <button
                 onClick={() => setShowReceipt(false)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-gray-700 p-1"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -212,112 +272,118 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
             </div>
 
             {/* User Information Form */}
-            <div className="mb-8 p-6 bg-gray-50 rounded-lg">
+            <div className="mb-6 p-4 sm:p-6 bg-gray-50 rounded-lg">
               <h3 className="text-lg font-semibold mb-4">Customer Information</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Name
+                    Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     name="name"
                     value={userInfo.name}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
                     placeholder="Enter name"
+                    required
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={userInfo.email}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
                     placeholder="Enter email"
+                    required
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
+                    Phone Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
                     name="phoneNumber"
                     value={userInfo.phoneNumber}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
                     placeholder="Enter phone number"
+                    required
                   />
                 </div>
+              </div>
+              <div className="mt-3 text-sm text-gray-600">
+                <p><span className="text-red-500">*</span> Required fields</p>
               </div>
             </div>
 
             {/* Receipt Content */}
-            <div ref={receiptRef} className="bg-white border border-gray-200 rounded-lg p-6">
+            <div ref={receiptRef} className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6">
               {/* Header */}
-              <div className="text-center mb-8 pb-6 border-b border-gray-200">
-                <h1 className="text-3xl font-bold text-gray-800 mb-2">CUSTOMER QUOTE</h1>
-                <p className="text-gray-600">Quote Date: {new Date().toLocaleDateString()}</p>
+              <div className="text-center mb-6 pb-4 border-b border-gray-200">
+                <h1 className="text-xl sm:text-3xl font-bold text-gray-800 mb-2">CUSTOMER QUOTE</h1>
+                <p className="text-sm sm:text-base text-gray-600">Quote Date: {new Date().toLocaleDateString()}</p>
                 {isDealer && (
-                  <div className="mt-2 inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="mt-2 inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs sm:text-sm font-medium">
                     Dealer View
                   </div>
                 )}
               </div>
 
               {/* Customer Info */}
-              <div className="mb-8">
-                <h3 className="text-lg font-semibold mb-4 text-gray-700">Customer Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="mb-6">
+                <h3 className="text-base sm:text-lg font-semibold mb-3 text-gray-700">Customer Information</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
                   <div>
                     <span className="font-medium text-gray-600">Name:</span>
-                    <p className="text-gray-800">{userInfo.name || 'Not provided'}</p>
+                    <p className="text-gray-800 break-words">{userInfo.name || 'Not provided'}</p>
                   </div>
                   <div>
                     <span className="font-medium text-gray-600">Email:</span>
-                    <p className="text-gray-800">{userInfo.email || 'Not provided'}</p>
+                    <p className="text-gray-800 break-words">{userInfo.email || 'Not provided'}</p>
                   </div>
                   <div>
                     <span className="font-medium text-gray-600">Phone:</span>
-                    <p className="text-gray-800">{userInfo.phoneNumber || 'Not provided'}</p>
+                    <p className="text-gray-800 break-words">{userInfo.phoneNumber || 'Not provided'}</p>
                   </div>
                 </div>
               </div>
 
               {/* Order Summary */}
-              <div className="mb-8">
-                <h3 className="text-lg font-semibold mb-4 text-gray-700">Quote Summary</h3>
-                <div className={`grid gap-4 ${isDealer ? 'grid-cols-1 md:grid-cols-4' : 'grid-cols-1 md:grid-cols-2'}`}>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="text-sm text-gray-600">Total Items</div>
-                    <div className="text-xl font-bold text-gray-800">{selectedItems.length}</div>
+              <div className="mb-6">
+                <h3 className="text-base sm:text-lg font-semibold mb-3 text-gray-700">Quote Summary</h3>
+                <div className={`grid gap-3 ${isDealer ? 'grid-cols-2 md:grid-cols-4' : 'grid-cols-2'}`}>
+                  <div className="bg-gray-50 p-3 rounded-lg">
+                    <div className="text-xs sm:text-sm text-gray-600">Total Items</div>
+                    <div className="text-lg sm:text-xl font-bold text-gray-800">{selectedItems.length}</div>
                   </div>
                   
                   {isDealer && (
                     <>
-                      <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                        <div className="text-sm text-blue-600">Dealer Margin</div>
-                        <div className="text-xl font-bold text-blue-600">
+                      <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                        <div className="text-xs sm:text-sm text-blue-600">Dealer Margin</div>
+                        <div className="text-lg sm:text-xl font-bold text-blue-600">
                           {formatCurrency(totals.totalMargin || 0)}
                         </div>
                       </div>
-                      <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                        <div className="text-sm text-purple-600">Dealer Price (GST)</div>
-                        <div className="text-xl font-bold text-purple-600">
+                      <div className="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                        <div className="text-xs sm:text-sm text-purple-600">Dealer Price (GST)</div>
+                        <div className="text-lg sm:text-xl font-bold text-purple-600">
                           {formatCurrency(totals.totalDealerPrice || 0)}
                         </div>
                       </div>
                     </>
                   )}
                   
-                  <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                    <div className="text-sm text-green-600">Total Price</div>
-                    <div className="text-xl font-bold text-green-600">
+                  <div className="bg-green-50 p-3 rounded-lg border border-green-200">
+                    <div className="text-xs sm:text-sm text-green-600">Total Price</div>
+                    <div className="text-lg sm:text-xl font-bold text-green-600">
                       {formatCurrency(getDisplayTotal())}
                     </div>
                     <div className="text-xs text-green-500 mt-1">including GST</div>
@@ -325,91 +391,137 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals}) => {
                 </div>
               </div>
 
-              {/* Items Table */}
-              <div className="mb-8">
-                <h3 className="text-lg font-semibold mb-4 text-gray-700">Items</h3>
+              {/* Items Table - Responsive */}
+              <div className="mb-6">
+                <h3 className="text-base sm:text-lg font-semibold mb-3 text-gray-700">Items</h3>
                 <div className="overflow-x-auto">
-                  <table className="w-full border-collapse border border-gray-300">
-                    <thead>
-                      <tr className="bg-gray-50">
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">Item</th>
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">Code</th>
-                        {isDealer && (
-                          <>
-                            <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">Dealer Margin</th>
-                            <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">Dealer Price</th>
-                          </>
-                        )}
-                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-700">
-                          {isDealer ? 'Customer Price' : 'Price'}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {selectedItems.map((item, index) => (
-                        <tr key={item.code} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-800">{item.name}</td>
-                          <td className="border border-gray-300 px-4 py-3 text-gray-800">{item.code}</td>
-                          {isDealer && (
-                            <>
-                              <td className="border border-gray-300 px-4 py-3 text-blue-600 font-semibold">
-                                {formatCurrency(item.dealerMargin || 0)}
+                  <div className="min-w-full inline-block align-middle">
+                    <div className="overflow-hidden">
+                      {/* Desktop Table */}
+                      <table className="min-w-full border-collapse border border-gray-300 hidden sm:table">
+                        <thead>
+                          <tr className="bg-gray-50">
+                            <th className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-700 text-sm">Item</th>
+                            <th className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-700 text-sm">Code</th>
+                            {isDealer && (
+                              <>
+                                <th className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-700 text-sm">Dealer Margin</th>
+                                <th className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-700 text-sm">Dealer Price</th>
+                              </>
+                            )}
+                            <th className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-700 text-sm">
+                              {isDealer ? 'Customer Price' : 'Price'}
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {selectedItems.map((item, index) => (
+                            <tr key={item.code} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                              <td className="border border-gray-300 px-3 py-2 text-gray-800 text-sm">{item.name}</td>
+                              <td className="border border-gray-300 px-3 py-2 text-gray-800 text-sm">{item.code}</td>
+                              {isDealer && (
+                                <>
+                                  <td className="border border-gray-300 px-3 py-2 text-blue-600 font-semibold text-sm">
+                                    {formatCurrency(item.dealerMargin || 0)}
+                                  </td>
+                                  <td className="border border-gray-300 px-3 py-2 text-purple-600 font-semibold text-sm">
+                                    {formatCurrency(item.dealerPriceInGST || 0)}
+                                  </td>
+                                </>
+                              )}
+                              <td className="border border-gray-300 px-3 py-2 text-green-600 font-semibold text-sm">
+                                {formatCurrency(getDisplayPrice(item))}
                               </td>
-                              <td className="border border-gray-300 px-4 py-3 text-purple-600 font-semibold">
-                                {formatCurrency(item.dealerPriceInGST || 0)}
-                              </td>
-                            </>
-                          )}
-                          <td className="border border-gray-300 px-4 py-3 text-green-600 font-semibold">
-                            {formatCurrency(getDisplayPrice(item))}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+
+                      {/* Mobile Cards */}
+                      <div className="sm:hidden space-y-3">
+                        {selectedItems.map((item, index) => (
+                          <div key={item.code} className="border border-gray-300 rounded-lg p-3 bg-white">
+                            <div className="grid grid-cols-2 gap-2 text-sm">
+                              <div className="col-span-2">
+                                <span className="font-semibold text-gray-700">Item:</span>
+                                <p className="text-gray-800 mt-1">{item.name}</p>
+                              </div>
+                              <div>
+                                <span className="font-semibold text-gray-700">Code:</span>
+                                <p className="text-gray-800">{item.code}</p>
+                              </div>
+                              {isDealer && (
+                                <>
+                                  <div>
+                                    <span className="font-semibold text-blue-600">Margin:</span>
+                                    <p className="text-blue-600">{formatCurrency(item.dealerMargin || 0)}</p>
+                                  </div>
+                                  <div>
+                                    <span className="font-semibold text-purple-600">Dealer Price:</span>
+                                    <p className="text-purple-600">{formatCurrency(item.dealerPriceInGST || 0)}</p>
+                                  </div>
+                                </>
+                              )}
+                              <div className={isDealer ? 'col-span-2' : ''}>
+                                <span className="font-semibold text-green-600">
+                                  {isDealer ? 'Customer Price:' : 'Price:'}
+                                </span>
+                                <p className="text-green-600 font-semibold">{formatCurrency(getDisplayPrice(item))}</p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Grand Total */}
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <div className="flex justify-between items-center">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                   <div>
-                    <h3 className="text-xl font-semibold text-green-900">Quote Total</h3>
-                    <p className="text-sm text-green-700">All prices include GST</p>
+                    <h3 className="text-lg sm:text-xl font-semibold text-green-900">Quote Total</h3>
+                    <p className="text-xs sm:text-sm text-green-700">All prices include GST</p>
                     {isDealer && (
                       <div className="mt-2 space-y-1">
-                        <p className="text-sm text-blue-700">Dealer Margin: {formatCurrency(totals.totalMargin || 0)}</p>
-                        <p className="text-sm text-purple-700">Dealer Price: {formatCurrency(totals.totalDealerPrice || 0)}</p>
+                        <p className="text-xs sm:text-sm text-blue-700">Dealer Margin: {formatCurrency(totals.totalMargin || 0)}</p>
+                        <p className="text-xs sm:text-sm text-purple-700">Dealer Price: {formatCurrency(totals.totalDealerPrice || 0)}</p>
                       </div>
                     )}
                   </div>
-                  <div className="text-right">
-                    <div className="text-3xl font-bold text-green-900">
+                  <div className="text-left sm:text-right">
+                    <div className="text-xl sm:text-3xl font-bold text-green-900">
                       {formatCurrency(getDisplayTotal())}
                     </div>
                     {isDealer && (
-                      <p className="text-sm text-green-700 mt-1">Customer Price</p>
+                      <p className="text-xs sm:text-sm text-green-700 mt-1">Customer Price</p>
                     )}
                   </div>
                 </div>
               </div>
 
               {/* Footer */}
-              <div className="text-center mt-8 pt-6 border-t border-gray-200">
-                <p className="text-gray-600">Thank you for your interest in IRON Boats!</p>
+              <div className="text-center mt-6 pt-4 border-t border-gray-200">
+                <p className="text-sm sm:text-base text-gray-600">Thank you for your interest in IRON Boats!</p>
               </div>
             </div>
 
             {/* Download Button */}
             <div className="flex justify-end mt-6">
               <button
-                onClick={downloadPDF}
-                className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition-colors duration-200 font-medium flex items-center"
+                onClick={handleDownloadClick}
+                disabled={isDownloadDisabled()}
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-md transition-colors duration-200 font-medium flex items-center text-sm sm:text-base w-full sm:w-auto justify-center ${
+                  isDownloadDisabled() 
+                    ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
+                    : 'bg-green-600 text-white hover:bg-green-700'
+                }`}
               >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Download PDF Quote
+                {isDownloadDisabled() ? 'Fill Required Fields to Download' : 'Download PDF Quote'}
               </button>
             </div>
           </div>

@@ -1,12 +1,9 @@
 import { 
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged
 } from 'firebase/auth';
 import { doc, getDoc, setDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { auth, db } from '../firebase/config';
-import { useNavigate } from 'react-router-dom';
 
 export const authService = {
   // Login user
@@ -88,6 +85,8 @@ export const authService = {
         localStorage.removeItem("role");
         localStorage.removeItem("email");
         localStorage.removeItem("id");
+        localStorage.removeItem("selectedInventoryItems")
+        localStorage.removeItem("selectedCategory")
     } catch (error) {
       throw new Error(error.message);
     }

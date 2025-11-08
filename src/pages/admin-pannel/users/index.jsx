@@ -17,7 +17,7 @@ const Users = () => {
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 10; // Changed from 1 to 10 for better UX
+  const itemsPerPage = 10;
 
   // Load users on component mount
   useEffect(() => {
@@ -92,8 +92,8 @@ const Users = () => {
       
       setIsUserModalOpen(false);
       setSelectedUser(null);
-      loadUsers(); // Refresh the list
-      setCurrentPage(0); // Reset to first page after adding/editing
+      loadUsers();
+      setCurrentPage(0);
     } catch (error) {
       toast.error('Failed to save user: ' + error.message);
     } finally {
@@ -109,9 +109,8 @@ const Users = () => {
       toast.success('User deleted successfully!');
       setIsDeleteModalOpen(false);
       setSelectedUser(null);
-      loadUsers(); // Refresh the list
+      loadUsers();
       
-      // Adjust current page if the last item on the page was deleted
       if (currentUsers.length === 1 && currentPage > 0) {
         setCurrentPage(currentPage - 1);
       }
@@ -145,7 +144,7 @@ const Users = () => {
           
           <button
             onClick={handleAddUser}
-            className="mt-4 sm:mt-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors duration-200 flex items-center space-x-2"
+            className="mt-4 sm:mt-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors duration-200 flex items-center space-x-2 w-full sm:w-auto justify-center"
           >
             <Plus className="h-4 w-4" />
             <span>Add User</span>
@@ -167,7 +166,7 @@ const Users = () => {
             />
           </div>
           
-          <div className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="text-sm text-gray-600 dark:text-gray-400 text-center sm:text-left">
             Showing {Math.min(currentUsers.length, itemsPerPage)} of {filteredUsers.length} users
             {filteredUsers.length !== users.length && ` (filtered from ${users.length} total)`}
           </div>
@@ -205,19 +204,20 @@ const Users = () => {
           // Users Table with Pagination
           <>
             <div className="overflow-x-auto">
-              <table className="w-full">
+              {/* Desktop Table */}
+              <table className="w-full hidden md:table">
                 <thead className="bg-gray-50 dark:bg-gray-700">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       User
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       Role
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       Created
                     </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                    <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       Actions
                     </th>
                   </tr>
@@ -225,7 +225,7 @@ const Users = () => {
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
                   {currentUsers.map((user) => (
                     <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-150">
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-4 py-4 whitespace-nowrap">
                         <div>
                           <div className="text-sm font-medium text-gray-900 dark:text-white">
                             {user.name}
@@ -235,15 +235,15 @@ const Users = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-4 py-4 whitespace-nowrap">
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">
                           {user.role || 'dealer'}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                      <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                         {formatDate(user.createdAt) || 'N/A'}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <td className="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <div className="flex justify-end space-x-2">
                           <button
                             onClick={() => handleEditUser(user)}
@@ -265,35 +265,75 @@ const Users = () => {
                   ))}
                 </tbody>
               </table>
+
+              {/* Mobile Cards */}
+              <div className="md:hidden space-y-4 p-4">
+                {currentUsers.map((user) => (
+                  <div key={user.id} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex-1">
+                        <div className="text-sm font-medium text-gray-900 dark:text-white mb-1">
+                          {user.name}
+                        </div>
+                        <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                          {user.email}
+                        </div>
+                        <div className="flex items-center space-x-4 text-xs text-gray-500 dark:text-gray-400">
+                          <span className="inline-flex items-center px-2 py-1 rounded-full font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">
+                            {user.role || 'dealer'}
+                          </span>
+                          <span>Created: {formatDate(user.createdAt) || 'N/A'}</span>
+                        </div>
+                      </div>
+                      <div className="flex space-x-2 ml-4">
+                        <button
+                          onClick={() => handleEditUser(user)}
+                          className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors duration-200 p-1"
+                          title="Edit user"
+                        >
+                          <Edit2 className="h-4 w-4" />
+                        </button>
+                        <button
+                          onClick={() => handleDeleteUser(user)}
+                          className="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 transition-colors duration-200 p-1"
+                          title="Delete user"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Pagination Component */}
             {pageCount > 1 && (
-              <div className="border-t border-gray-200 dark:border-gray-600 px-6 py-4">
+              <div className="border-t border-gray-200 dark:border-gray-600 px-4 py-4">
                 <ReactPaginate
                   previousLabel={"Previous"}
                   nextLabel={"Next"}
                   breakLabel={"..."}
                   pageCount={pageCount}
-                  marginPagesDisplayed={2}
-                  pageRangeDisplayed={5}
+                  marginPagesDisplayed={1}
+                  pageRangeDisplayed={3}
                   onPageChange={handlePageClick}
-                  containerClassName={"flex items-center justify-between sm:justify-center space-x-2"}
+                  containerClassName={"flex items-center justify-between sm:justify-center space-x-1 sm:space-x-2 flex-wrap"}
                   pageClassName={"hidden sm:inline-block"}
                   pageLinkClassName={
-                    "px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+                    "px-2 sm:px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
                   }
                   previousClassName={"inline-block"}
                   previousLinkClassName={
-                    "px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center"
+                    "px-2 sm:px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center"
                   }
                   nextClassName={"inline-block"}
                   nextLinkClassName={
-                    "px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center"
+                    "px-2 sm:px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center"
                   }
                   breakClassName={"hidden sm:inline-block"}
                   breakLinkClassName={
-                    "px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300"
+                    "px-2 sm:px-3 py-1 rounded-lg border border-gray-300 dark:border-gray-600 text-sm text-gray-700 dark:text-gray-300"
                   }
                   activeClassName={"active"}
                   activeLinkClassName={
@@ -305,7 +345,7 @@ const Users = () => {
                 />
                 
                 {/* Mobile pagination info */}
-                <div className="sm:hidden text-center mt-4 text-sm text-gray-600 dark:text-gray-400">
+                <div className="w-full text-center mt-3 text-sm text-gray-600 dark:text-gray-400">
                   Page {currentPage + 1} of {pageCount}
                 </div>
               </div>

@@ -9,7 +9,7 @@ export default function DashboardLayout({ children }) {
       <Header />
 
       {/* Page content (scrollable if needed) */}
-      <main className="flex-grow w-full flex flex-col items-center justify-start px-4 py-6">
+      <main className="max-w-full w-full  px-4 py-6">
         {children}
       </main>
 
