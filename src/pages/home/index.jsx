@@ -271,7 +271,7 @@ const Home = () => {
                 <div className="mb-6">
                   <div className="flex items-center space-x-2 mb-4">
                     <div className="w-2 h-6 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
-                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    <label className="block text-md font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                       Select Boat Model
                     </label>
                   </div>
@@ -279,7 +279,7 @@ const Home = () => {
                     <select
                       value={selectedDisplay}
                       onChange={handleCategoryChange}
-                      className="w-full px-5 text-lg bg-white/50 dark:bg-gray-700/50 border-2 border-gray-300/50 dark:border-gray-600/50 rounded-2xl shadow-lg focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 dark:focus:ring-blue-400/30 transition-all duration-300 appearance-none cursor-pointer focus:outline-none text-gray-900 dark:text-white backdrop-blur-sm group-hover:border-blue-400 dark:group-hover:border-blue-500 font-semibold h-16"
+                      className="w-full pr-12 ps-4 md:px-5  text-md bg-white/50 dark:bg-gray-700/50 border-2 border-gray-300/50 dark:border-gray-600/50 rounded-2xl shadow-lg focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 dark:focus:ring-blue-400/30 transition-all duration-300 appearance-none cursor-pointer focus:outline-none text-gray-900 dark:text-white backdrop-blur-sm group-hover:border-blue-400 dark:group-hover:border-blue-500 font-semibold h-16 md:whitespace-normal truncate md:truncate-0 overflow-ellipsis whitespace-nowrap"
                     >
                       <option value="" className="text-gray-500 text-lg">Choose your boat model</option>
 
@@ -298,7 +298,7 @@ const Home = () => {
                                   value={variant.display}
                                   data-category={variant.value}
                                   data-category-label={group.label}
-                                  className={`py-4 ml-4 text-lg ${index < model.variants.length - 1
+                                  className={`py-4 ml-4 text-sm md:text-lg ${index < model.variants.length - 1
                                     ? 'border-b border-gray-200 dark:border-gray-600'
                                     : ''
                                     }`}

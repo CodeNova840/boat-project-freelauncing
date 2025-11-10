@@ -217,9 +217,9 @@ const DealersHome = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Selection Panel */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-2">
               <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700 transition-all duration-300">
                 {/* Category Selection */}
                 <div className="mb-6">
@@ -230,7 +230,7 @@ const DealersHome = () => {
                     <select
                       value={selectedDisplay}
                       onChange={handleCategoryChange}
-                      className="w-full p-4 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-400 transition-all duration-200 appearance-none cursor-pointer focus:outline-none text-gray-900 dark:text-white"
+                      className="w-full text-md pr-10 ps-4 md:px-4 py-4 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-400 transition-all duration-200 appearance-none cursor-pointer focus:outline-none text-gray-900 dark:text-white md:whitespace-normal truncate md:truncate-0 overflow-ellipsis whitespace-nowrap"
                     >
                       <option value="" className="text-gray-500">Choose a category</option>
 
@@ -303,7 +303,7 @@ const DealersHome = () => {
             </div>
 
             {/* Items List */}
-            <div className="lg:col-span-2 min-w-0">
+            <div className="lg:col-span-3 min-w-0">
               {selectedCategory && currentItems.length > 0 && (
                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700 transition-all duration-300 w-full min-w-0">
                   <div className="flex items-center justify-between mb-6 min-w-0">
