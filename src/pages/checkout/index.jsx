@@ -8,6 +8,7 @@ const Checkout = () => {
   const { selectedDisplay } = location.state || {};
   const { selectedItems, removeItem, clearAllItems } = useInventory();
   const [showReceipt, setShowReceipt] = useState(false);
+  const isDealer = localStorage.getItem('role') === 'dealer';
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-AU', {
@@ -16,21 +17,24 @@ const Checkout = () => {
     }).format(amount);
   };
 
-  const calculateTotals = () => {
-    const totals = {
-      totalRRP: 0,
-      totalDealerPrice: 0,
-      totalMargin: 0
-    };
-
-    selectedItems.forEach(item => {
-      totals.totalRRP += item.rrpInGST;
-      totals.totalDealerPrice += item.dealerPriceInGST;
-      totals.totalMargin += item.dealerMargin;
-    });
-
-    return totals;
+const calculateTotals = () => {
+  const totals = {
+    totalRRP: 0,
+    totalDealerPrice: 0,
+    totalMargin: 0
   };
+  
+  console.log(selectedItems, 'selected items checkout')
+  selectedItems.forEach(item => {
+    // console.log(item,'map item')
+    totals.totalRRP += item.rrpInGST;
+    // FIX: Use the actual dealer price property instead of rrpExGST
+    totals.totalDealerPrice += item.dealerGST || item.dealerPrice;
+    totals.totalMargin += item.dealerMargin;
+  });
+  console.log(totals, "totals")
+  return totals;
+};
 
   const totals = calculateTotals();
 
@@ -136,9 +140,8 @@ const Checkout = () => {
         </div>
       </div>
 
-
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className={`grid grid-cols-1 ${isDealer ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-4 mb-8`}>
         <div className="bg-white p-4 rounded-lg shadow border">
           <div className="text-sm text-gray-600">Total Items</div>
           <div className="text-2xl font-bold text-gray-800">{selectedItems.length}</div>
@@ -147,10 +150,12 @@ const Checkout = () => {
           <div className="text-sm text-gray-600">Total RRP (inc GST)</div>
           <div className="text-2xl font-bold text-blue-600">{formatCurrency(totals.totalRRP)}</div>
         </div>
-        <div className="bg-white p-4 rounded-lg shadow border">
-          <div className="text-sm text-gray-600">Total Margin</div>
-          <div className="text-2xl font-bold text-purple-600">{formatCurrency(totals.totalMargin)}</div>
-        </div>
+        {isDealer && (
+          <div className="bg-white p-4 rounded-lg shadow border">
+            <div className="text-sm text-gray-600">Total Margin</div>
+            <div className="text-2xl font-bold text-purple-600">{formatCurrency(totals.totalMargin)}</div>
+          </div>
+        )}
       </div>
 
       {/* Selected Items List */}
@@ -161,43 +166,52 @@ const Checkout = () => {
           </h2>
         </div>
         <div className="divide-y divide-gray-200">
-          {selectedItems.map((item, index) => (
-            <div key={item.code} className="p-6 hover:bg-gray-50 transition-colors duration-150">
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
-                      <p className="text-sm text-gray-500 mt-1">Code: {item.code}</p>
-                    </div>
-                    <button
-                      onClick={() => removeItem(item.code)}
-                      className="text-red-600 hover:text-red-800 font-medium text-sm"
-                    >
-                      Remove
-                    </button>
-                  </div>
-
-                  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-gray-50 p-3 rounded">
-                      <div className="text-xs text-gray-600">RRP (inc GST)</div>
-                      <div className="font-semibold text-blue-600">{formatCurrency(item.rrpInGST)}</div>
-                    </div>
-                    <div className="bg-gray-50 p-3 rounded">
-                      <div className="text-xs text-gray-600">Dealer Price (inc GST)</div>
-                      <div className="font-semibold text-purple-600">{formatCurrency(item.dealerPriceInGST)}</div>
-                    </div>
-                    <div className="bg-gray-50 p-3 rounded">
-                      <div className="text-xs text-gray-600">Dealer Margin</div>
-                      <div className={`font-semibold ${item.dealerMargin > 0 ? 'text-green-600' : 'text-red-600'}`}>
-                        {formatCurrency(item.dealerMargin)}
+          {selectedItems.map((item, index) => {
+            console.log(item, 'item-data')
+            return (
+              <div key={item.code} className="p-6 hover:bg-gray-50 transition-colors duration-150">
+                <div className="flex justify-between items-start">
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
+                        <p className="text-sm text-gray-500 mt-1">Code: {item.code}</p>
                       </div>
+                      <button
+                        onClick={() => removeItem(item.code)}
+                        className="text-red-600 hover:text-red-800 font-medium text-sm"
+                      >
+                        Remove
+                      </button>
+                    </div>
+
+                    <div className={`mt-4 grid ${isDealer ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'} gap-4`}>
+                      <div className="bg-gray-50 p-3 rounded">
+                        <div className="text-xs text-gray-600">RRP (inc GST)</div>
+                        <div className="font-semibold text-blue-600">{item.rrpInGST}</div>
+                      </div>
+                      {isDealer && (
+                        <div className="bg-gray-50 p-3 rounded">
+                          <div className="text-xs text-gray-600">Dealer Price (inc GST)</div>
+                          <div className="font-semibold text-purple-600"> {item.dealerGST}</div>
+                        </div>
+                      )}
+
+                      {isDealer && (
+                        <div className="bg-gray-50 p-3 rounded">
+                          <div className="text-xs text-gray-600">Dealer Margin</div>
+                          <div className={`font-semibold ${item.dealerMargin > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                            {formatCurrency(item.dealerMargin)}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          }
+          )}
         </div>
       </div>
 
@@ -210,18 +224,26 @@ const Checkout = () => {
           </div>
           <div className="text-right">
             <div className="text-2xl font-bold text-blue-900">
-              {formatCurrency(totals.totalDealerPrice)}
+              {isDealer ? totals.totalDealerPrice : formatCurrency(totals.totalRRP)}
             </div>
-            <div className="text-sm text-blue-700">
-              Total Margin: {formatCurrency(totals.totalMargin)}
-            </div>
+            {isDealer && (
+              <div className="text-sm text-blue-700">
+                Total Margin: {formatCurrency(totals.totalMargin)}
+              </div>
+            )}
           </div>
         </div>
       </div>
 
       {/* Receipt Modal */}
       {showReceipt && (
-        <ReceiptModal setShowReceipt={setShowReceipt} selectedItems={selectedItems} totals={totals} selectedDisplay={selectedDisplay} />
+        <ReceiptModal
+          setShowReceipt={setShowReceipt}
+          selectedItems={selectedItems}
+          totals={totals}
+          selectedDisplay={selectedDisplay}
+          isDealer={isDealer}
+        />
       )}
     </div>
   );

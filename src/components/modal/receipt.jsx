@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { jsPDF } from 'jspdf';
+import { toast } from "react-toastify";
 
 const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => {
   const [userInfo, setUserInfo] = useState({
@@ -8,6 +9,7 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
     phoneNumber: ''
   });
   const receiptRef = useRef();
+  const formRef = useRef(); // New ref for the form section
   
   const role = localStorage.getItem("role");
   const isDealer = role === 'dealer';
@@ -22,11 +24,11 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
 
   const showToast = (message, type = 'error') => {
     // Check if toastr is available (you might need to import toastr or use another notification library)
-    if (typeof toastr !== 'undefined') {
-      toastr[type](message);
+    if (typeof toast !== 'undefined') {
+      toast[type](message);
     } else {
       // Fallback to browser alert if toastr is not available
-      toastr.error(message);
+      alert(message);
     }
   };
 
@@ -35,16 +37,19 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
     
     if (!name.trim()) {
       showToast('Name is required');
+      scrollToTop();
       return false;
     }
     
     if (!email.trim()) {
       showToast('Email is required');
+      scrollToTop();
       return false;
     }
     
     if (!phoneNumber.trim()) {
       showToast('Phone number is required');
+      scrollToTop();
       return false;
     }
     
@@ -52,6 +57,7 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       showToast('Please enter a valid email address');
+      scrollToTop();
       return false;
     }
     
@@ -60,10 +66,27 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
     const cleanPhone = phoneNumber.replace(/\D/g, '');
     if (!phoneRegex.test(cleanPhone)) {
       showToast('Please enter a valid phone number (at least 10 digits)');
+      scrollToTop();
       return false;
     }
     
     return true;
+  };
+
+  const scrollToTop = () => {
+    // Scroll to the top of the modal where the form is located
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    } else {
+      // Fallback: scroll to top of modal container
+      const modalContainer = document.querySelector('.fixed.inset-0');
+      if (modalContainer) {
+        modalContainer.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
   };
 
   const formatCurrency = (amount) => {
@@ -240,17 +263,7 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
     }
   };
 
-  // Check if all required fields are filled
-  const isDownloadDisabled = () => {
-    const { name, email, phoneNumber } = userInfo;
-    return !name.trim() || !email.trim() || !phoneNumber.trim();
-  };
-
   const handleDownloadClick = () => {
-    if (isDownloadDisabled()) {
-      showToast('Please fill in all required fields (name, email, and phone number) before downloading');
-      return;
-    }
     downloadPDF();
   };
 
@@ -272,7 +285,7 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
             </div>
 
             {/* User Information Form */}
-            <div className="mb-6 p-4 sm:p-6 bg-gray-50 rounded-lg">
+            <div ref={formRef} className="mb-6 p-4 sm:p-6 bg-gray-50 rounded-lg">
               <h3 className="text-lg font-semibold mb-4">Customer Information</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
@@ -400,8 +413,8 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
                       {/* Desktop Table */}
                       <table className="min-w-full border-collapse border border-gray-300 hidden sm:table">
                         <thead>
-                          <tr className="bg-gray-50">
-                            <th className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-700 text-sm">Item</th>
+                          <tr className="bg-gray-50 hidden  md:table-row">
+                            <th className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-700 text-sm">Product Name</th>
                             <th className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-700 text-sm">Code</th>
                             {isDealer && (
                               <>
@@ -425,7 +438,7 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
                                     {formatCurrency(item.dealerMargin || 0)}
                                   </td>
                                   <td className="border border-gray-300 px-3 py-2 text-purple-600 font-semibold text-sm">
-                                    {formatCurrency(item.dealerPriceInGST || 0)}
+                                    {formatCurrency(item.dealerGST || 0)}
                                   </td>
                                 </>
                               )}
@@ -442,28 +455,28 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
                         {selectedItems.map((item, index) => (
                           <div key={item.code} className="border border-gray-300 rounded-lg p-3 bg-white">
                             <div className="grid grid-cols-2 gap-2 text-sm">
-                              <div className="col-span-2">
-                                <span className="font-semibold text-gray-700">Item:</span>
+                              <div className="col-span-2 ">
+                                <span className="font-semibold text-gray-700 hidden md:block">Item:</span>
                                 <p className="text-gray-800 mt-1">{item.name}</p>
                               </div>
                               <div>
-                                <span className="font-semibold text-gray-700">Code:</span>
+                                <span className="font-semibold text-gray-700 hidden md:block">Code:</span>
                                 <p className="text-gray-800">{item.code}</p>
                               </div>
                               {isDealer && (
                                 <>
                                   <div>
-                                    <span className="font-semibold text-blue-600">Margin:</span>
+                                    <span className="font-semibold text-blue-600 hidden md:block">Margin:</span>
                                     <p className="text-blue-600">{formatCurrency(item.dealerMargin || 0)}</p>
                                   </div>
                                   <div>
-                                    <span className="font-semibold text-purple-600">Dealer Price:</span>
-                                    <p className="text-purple-600">{formatCurrency(item.dealerPriceInGST || 0)}</p>
+                                    <span className="font-semibold text-purple-600 hidden md:block ">Dealer Price:</span>
+                                    <p className="text-purple-600">{formatCurrency(item.dealerGST || 0)}</p>
                                   </div>
                                 </>
                               )}
                               <div className={isDealer ? 'col-span-2' : ''}>
-                                <span className="font-semibold text-green-600">
+                                <span className={`font-semibold text-green-600 hidden md:block}`}>
                                   {isDealer ? 'Customer Price:' : 'Price:'}
                                 </span>
                                 <p className="text-green-600 font-semibold">{formatCurrency(getDisplayPrice(item))}</p>
@@ -511,17 +524,12 @@ const ReceiptModal = ({setShowReceipt,selectedItems,totals,selectedDisplay}) => 
             <div className="flex justify-end mt-6">
               <button
                 onClick={handleDownloadClick}
-                disabled={isDownloadDisabled()}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-md transition-colors duration-200 font-medium flex items-center text-sm sm:text-base w-full sm:w-auto justify-center ${
-                  isDownloadDisabled() 
-                    ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
-                    : 'bg-green-600 text-white hover:bg-green-700'
-                }`}
+                className="px-4 sm:px-6 py-2 sm:py-3 rounded-md transition-colors duration-200 font-medium flex items-center text-sm sm:text-base w-full sm:w-auto justify-center bg-green-600 text-white hover:bg-green-700"
               >
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                {isDownloadDisabled() ? 'Fill Required Fields to Download' : 'Download PDF Quote'}
+                Download PDF Quote
               </button>
             </div>
           </div>

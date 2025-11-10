@@ -64,10 +64,10 @@ const Users = () => {
   };
 
   // Handle Edit User
-  const handleEditUser = (user) => {
-    setSelectedUser(user);
-    setIsUserModalOpen(true);
-  };
+  // const handleEditUser = (user) => {
+  //   setSelectedUser(user);
+  //   setIsUserModalOpen(true);
+  // };
 
   // Handle Delete User
   const handleDeleteUser = (user) => {
@@ -245,13 +245,13 @@ const Users = () => {
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <div className="flex justify-end space-x-2">
-                          <button
+                          {/* <button
                             onClick={() => handleEditUser(user)}
                             className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors duration-200 p-1"
                             title="Edit user"
                           >
                             <Edit2 className="h-4 w-4" />
-                          </button>
+                          </button> */}
                           <button
                             onClick={() => handleDeleteUser(user)}
                             className="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 transition-colors duration-200 p-1"
@@ -286,13 +286,13 @@ const Users = () => {
                         </div>
                       </div>
                       <div className="flex space-x-2 ml-4">
-                        <button
+                        {/* <button
                           onClick={() => handleEditUser(user)}
                           className="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors duration-200 p-1"
                           title="Edit user"
                         >
                           <Edit2 className="h-4 w-4" />
-                        </button>
+                        </button> */}
                         <button
                           onClick={() => handleDeleteUser(user)}
                           className="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 transition-colors duration-200 p-1"

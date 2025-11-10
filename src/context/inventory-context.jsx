@@ -19,23 +19,24 @@ export const InventoryProvider = ({ children }) => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('');
 
-useEffect(() => {
-  const savedItems = localStorage.getItem('selectedInventoryItems');
-  if (savedItems) {
-    try {
-      const parsedItems = JSON.parse(savedItems);
-      setSelectedItems(parsedItems);
-    } catch {
-      setSelectedItems([]);
+  useEffect(() => {
+    const savedItems = localStorage.getItem('selectedInventoryItems');
+    if (savedItems) {
+      try {
+        const parsedItems = JSON.parse(savedItems);
+        setSelectedItems(parsedItems);
+      } catch {
+        setSelectedItems([]);
+      }
     }
-  }
-  setHasLoaded(true);
-}, []);
+    setHasLoaded(true);
+  }, []);
 
-useEffect(() => {
-  if (!hasLoaded) return; // wait until data is loaded before saving
-  localStorage.setItem('selectedInventoryItems', JSON.stringify(selectedItems));
-}, [selectedItems, hasLoaded]);
+  useEffect(() => {
+    if (!hasLoaded) return; // wait until data is loaded before saving
+    localStorage.setItem('selectedInventoryItems', JSON.stringify(selectedItems));
+  }, [selectedItems, hasLoaded]);
+
   const addItem = (item) => {
     console.log('Adding item:', item); // Debug log
     setSelectedItems(prev => {
@@ -56,6 +57,20 @@ useEffect(() => {
     setSelectedItems(prev => {
       const newItems = prev.filter(item => item.code !== itemCode);
       console.log('Items after removal:', newItems); // Debug log
+      
+      // Check if we need to clear the selected category
+      const remainingItemsInCategory = newItems.filter(item => 
+        item.category === selectedCategory
+      );
+      
+      if (remainingItemsInCategory.length === 0) {
+        // Clear category if no items left from this category
+        setSelectedCategory('');
+        localStorage.removeItem('selectedCategory');
+        localStorage.removeItem('selectedDisplay');
+        localStorage.removeItem('selectedCategoryLabel');
+      }
+      
       return newItems;
     });
   };
@@ -63,11 +78,32 @@ useEffect(() => {
   const clearAllItems = () => {
     console.log('Clearing all items'); // Debug log
     setSelectedItems([]);
+    setSelectedCategory('');
     localStorage.removeItem('selectedInventoryItems');
+    localStorage.removeItem('selectedCategory');
+    localStorage.removeItem('selectedDisplay');
+    localStorage.removeItem('selectedCategoryLabel');
+    
     if (selectedItems.length === 0) {
       console.log("hello")
       navigate('/home')
     }
+  };
+
+  const clearCategory = (category) => {
+    setSelectedItems(prev => {
+      const newItems = prev.filter(item => item.category !== category);
+      
+      // If we're clearing the currently selected category, reset it
+      if (selectedCategory === category) {
+        setSelectedCategory('');
+        localStorage.removeItem('selectedCategory');
+        localStorage.removeItem('selectedDisplay');
+        localStorage.removeItem('selectedCategoryLabel');
+      }
+      
+      return newItems;
+    });
   };
 
   const value = {
@@ -75,6 +111,7 @@ useEffect(() => {
     addItem,
     removeItem,
     clearAllItems,
+    clearCategory,
     selectedCategory,
     setSelectedCategory,
     categories: inventoryCategories

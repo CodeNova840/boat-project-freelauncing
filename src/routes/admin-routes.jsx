@@ -6,8 +6,6 @@ const AdminRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Users/>} />
-      <Route/>
-      <Route/>
     </Routes>
   )
 }

@@ -206,7 +206,161 @@ const inventoryCategories = {
     }
   ],
   // iron 647
-  "IRON 647": [
+  //  IRON 647 - Mercury 150 V6 Pro XS
+  "IRON 647 - Mercury 150 V6 Pro XS": [
+    {
+      itemCode: "MERC-150 PRO XS",
+      itemName: "Mercury, 150HP PRO XS, Active trim",
+      rrpInGST: 24107.00,
+      dealerPriceInGST: 22901.65,
+      dealerMargin: 1205.35
+    },
+    {
+      itemCode: "647 - Flooring",
+      itemName: "647 - Sea Deck soft flooring",
+      rrpInGST: 1935.00,
+      dealerPriceInGST: 1741.50,
+      dealerMargin: 193.50
+    },
+    {
+      itemCode: "647- ANCHOR",
+      itemName: "647- Anchor winch fitted, 647 only",
+      rrpInGST: 6600.00,
+      dealerPriceInGST: 6374.50,
+      dealerMargin: 225.50
+    },
+    {
+      itemCode: "647-ANTI",
+      itemName: "647 - Antifouling",
+      rrpInGST: 1695.00,
+      dealerPriceInGST: 1525.50,
+      dealerMargin: 169.50
+    },
+    {
+      itemCode: "647-BOAT/B",
+      itemName: "647 - IRON Boat in Black",
+      rrpInGST: 107995.00,
+      dealerPriceInGST: 96115.55,
+      dealerMargin: 11879.45
+    },
+    {
+      itemCode: "647-BOAT/G",
+      itemName: "647 - IRON Boat in Grey",
+      rrpInGST: 107995.00,
+      dealerPriceInGST: 96115.55,
+      dealerMargin: 11879.45
+    },
+    {
+      itemCode: "647-BOAT/W",
+      itemName: "647 - IRON Boat in White",
+      rrpInGST: 107995.00,
+      dealerPriceInGST: 96115.55,
+      dealerMargin: 11879.45
+    },
+    {
+      itemCode: "647-COVER",
+      itemName: "647 - Console Cover 647 only",
+      rrpInGST: 715.00,
+      dealerPriceInGST: 643.50,
+      dealerMargin: 71.50
+    },
+    {
+      itemCode: "647-DELI",
+      itemName: "647 - Delivery costs, including 50 litre fuel",
+      rrpInGST: 695.00,
+      dealerPriceInGST: 625.50,
+      dealerMargin: 69.50
+    },
+    {
+      itemCode: "647-HYDR",
+      itemName: "647 - Hydraulic Pump and hoses",
+      rrpInGST: 1534.50,
+      dealerPriceInGST: 1381.05,
+      dealerMargin: 153.45
+    }
+  ],
+  //  IRON 647 - Mercury 200 V8 Pro XS
+  "IRON 647 - Mercury 200 V8 Pro XS": [
+    {
+      itemCode: "MERC- V8 - 200HP - Pro XS",
+      itemName: "Mercury V8 -200HP - Pro XS",
+      rrpInGST: 31371.00,
+      dealerPriceInGST: 29802.46,
+      dealerMargin: 1568.54
+    },
+    {
+      itemCode: "647 - Flooring",
+      itemName: "647 - Sea Deck soft flooring",
+      rrpInGST: 1935.00,
+      dealerPriceInGST: 1741.50,
+      dealerMargin: 193.50
+    },
+    {
+      itemCode: "647- ANCHOR",
+      itemName: "647- Anchor winch fitted, 647 only",
+      rrpInGST: 6600.00,
+      dealerPriceInGST: 6374.50,
+      dealerMargin: 225.50
+    },
+    {
+      itemCode: "647-ANTI",
+      itemName: "647 - Antifouling",
+      rrpInGST: 1695.00,
+      dealerPriceInGST: 1525.50,
+      dealerMargin: 169.50
+    },
+    {
+      itemCode: "647-BOAT/B",
+      itemName: "647 - IRON Boat in Black",
+      rrpInGST: 107995.00,
+      dealerPriceInGST: 96115.55,
+      dealerMargin: 11879.45
+    },
+    {
+      itemCode: "647-BOAT/G",
+      itemName: "647 - IRON Boat in Grey",
+      rrpInGST: 107995.00,
+      dealerPriceInGST: 96115.55,
+      dealerMargin: 11879.45
+    },
+    {
+      itemCode: "647-BOAT/W",
+      itemName: "647 - IRON Boat in White",
+      rrpInGST: 107995.00,
+      dealerPriceInGST: 96115.55,
+      dealerMargin: 11879.45
+    },
+    {
+      itemCode: "647-COVER",
+      itemName: "647 - Console Cover 647 only",
+      rrpInGST: 715.00,
+      dealerPriceInGST: 643.50,
+      dealerMargin: 71.50
+    },
+    {
+      itemCode: "647-DELI",
+      itemName: "647 - Delivery costs, including 50 litre fuel",
+      rrpInGST: 695.00,
+      dealerPriceInGST: 625.50,
+      dealerMargin: 69.50
+    },
+    {
+      itemCode: "647-HYDR",
+      itemName: "647 - Hydraulic Pump and hoses",
+      rrpInGST: 1534.50,
+      dealerPriceInGST: 1381.05,
+      dealerMargin: 153.45
+    }
+  ],
+  // IRON 647 - Mercury 200 V6 DTS
+  "IRON 647 - Mercury 200 V6 DTS": [
+    {
+      itemCode: "MERC-200HP-V6-DTS",
+      itemName: "Mercury V6 - 200HP, dts",
+      rrpInGST: 29362.00,
+      dealerPriceInGST: 27893.90,
+      dealerMargin: 1468.10
+    },
     {
       itemCode: "647 - Flooring",
       itemName: "647 - Sea Deck soft flooring",
@@ -272,7 +426,17 @@ const inventoryCategories = {
     }
   ],
   // iron 707
-  "IRON 707": [
+
+
+  // IRON 707 - Mercury 200 V6 DTS
+  "IRON 707 - Mercury 200 V6 DTS": [
+    {
+      itemCode: "MERC-200HP-V6-DTS",
+      itemName: "Mercury V6 - 200HP, dts",
+      rrpInGST: 29362.00,
+      dealerPriceInGST: 27893.90,
+      dealerMargin: 1468.10
+    },
     {
       itemCode: "707 - Flooring",
       itemName: "707 - Sea Deck soft flooring",
@@ -323,9 +487,254 @@ const inventoryCategories = {
       dealerMargin: 153.45
     }
   ],
+  // IRON 707 - Mercury 225 V6 DTS
+  "IRON 707 - Mercury 225 V6 DTS": [
+    {
+      itemCode: "MERC-225HP-V6-DTS",
+      itemName: "Mercury V6 - 225HP, DTS",
+      rrpInGST: 31625.00,
+      dealerPriceInGST: 30043.75,
+      dealerMargin: 1581.25
+    },
+    {
+      itemCode: "707 - Flooring",
+      itemName: "707 - Sea Deck soft flooring",
+      rrpInGST: 2235.00,
+      dealerPriceInGST: 2095.50,
+      dealerMargin: 139.50
+    },
+    {
+      itemCode: "707-ANTI",
+      itemName: "707 - Antifouling",
+      rrpInGST: 1895.00,
+      dealerPriceInGST: 1705.50,
+      dealerMargin: 189.50
+    },
+    {
+      itemCode: "707-BOAT/B",
+      itemName: "707 - IRON Boat in Black",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-BOAT/G",
+      itemName: "707 - IRON Boat in Grey",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-BOAT/Wh",
+      itemName: "707 - IRON Boat in White",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-DELI",
+      itemName: "707 - Delivery costs, including 50 litre fuel",
+      rrpInGST: 725.00,
+      dealerPriceInGST: 652.51,
+      dealerMargin: 72.49
+    },
+    {
+      itemCode: "707-HYDR",
+      itemName: "707 - Hydraulic Pump and hoses",
+      rrpInGST: 1534.50,
+      dealerPriceInGST: 1381.05,
+      dealerMargin: 153.45
+    }
+  ],
+  //  IRON 707 - Mercury 200 V8 PROXS
+  "IRON 707 - Mercury 200 V8 PROXS": [
+    {
+      itemCode: "MERC- V8 - 200HP - Pro XS",
+      itemName: "Mercury V8 -200HP - Pro XS",
+      rrpInGST: 31371.00,
+      dealerPriceInGST: 29802.46,
+      dealerMargin: 1568.54
+    },
+    {
+      itemCode: "707 - Flooring",
+      itemName: "707 - Sea Deck soft flooring",
+      rrpInGST: 2235.00,
+      dealerPriceInGST: 2095.50,
+      dealerMargin: 139.50
+    },
+    {
+      itemCode: "707-ANTI",
+      itemName: "707 - Antifouling",
+      rrpInGST: 1895.00,
+      dealerPriceInGST: 1705.50,
+      dealerMargin: 189.50
+    },
+    {
+      itemCode: "707-BOAT/B",
+      itemName: "707 - IRON Boat in Black",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-BOAT/G",
+      itemName: "707 - IRON Boat in Grey",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-BOAT/Wh",
+      itemName: "707 - IRON Boat in White",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-DELI",
+      itemName: "707 - Delivery costs, including 50 litre fuel",
+      rrpInGST: 725.00,
+      dealerPriceInGST: 652.51,
+      dealerMargin: 72.49
+    },
+    {
+      itemCode: "707-HYDR",
+      itemName: "707 - Hydraulic Pump and hoses",
+      rrpInGST: 1534.50,
+      dealerPriceInGST: 1381.05,
+      dealerMargin: 153.45
+    }
+  ],
+  // IRON 707 - Mercury 250 V8 PROXS
+  "IRON 707 - Mercury 250 V8 PROXS": [
+    {
+      itemCode: "MERC-V8-250HP PRO XS",
+      itemName: "Mercury V8 PRO XS - 250HP",
+      rrpInGST: 37756.00,
+      dealerPriceInGST: 35868.20,
+      dealerMargin: 1887.80
+    },
+    {
+      itemCode: "707 - Flooring",
+      itemName: "707 - Sea Deck soft flooring",
+      rrpInGST: 2235.00,
+      dealerPriceInGST: 2095.50,
+      dealerMargin: 139.50
+    },
+    {
+      itemCode: "707-ANTI",
+      itemName: "707 - Antifouling",
+      rrpInGST: 1895.00,
+      dealerPriceInGST: 1705.50,
+      dealerMargin: 189.50
+    },
+    {
+      itemCode: "707-BOAT/B",
+      itemName: "707 - IRON Boat in Black",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-BOAT/G",
+      itemName: "707 - IRON Boat in Grey",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-BOAT/Wh",
+      itemName: "707 - IRON Boat in White",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-DELI",
+      itemName: "707 - Delivery costs, including 50 litre fuel",
+      rrpInGST: 725.00,
+      dealerPriceInGST: 652.51,
+      dealerMargin: 72.49
+    },
+    {
+      itemCode: "707-HYDR",
+      itemName: "707 - Hydraulic Pump and hoses",
+      rrpInGST: 1534.50,
+      dealerPriceInGST: 1381.05,
+      dealerMargin: 153.45
+    }
+  ],
+  // IRON 707 - Mercury 250 V8 Verado
+  "IRON 707 - Mercury 250 V8 Verado": [
+    {
+      itemCode: "MERC-V8-250HP Verado",
+      itemName: "Mercury V8 Verado 250HP",
+      rrpInGST: 38607.00,
+      dealerPriceInGST: 36676.65,
+      dealerMargin: 1930.35
+    },
+    {
+      itemCode: "707 - Flooring",
+      itemName: "707 - Sea Deck soft flooring",
+      rrpInGST: 2235.00,
+      dealerPriceInGST: 2095.50,
+      dealerMargin: 139.50
+    },
+    {
+      itemCode: "707-ANTI",
+      itemName: "707 - Antifouling",
+      rrpInGST: 1895.00,
+      dealerPriceInGST: 1705.50,
+      dealerMargin: 189.50
+    },
+    {
+      itemCode: "707-BOAT/B",
+      itemName: "707 - IRON Boat in Black",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-BOAT/G",
+      itemName: "707 - IRON Boat in Grey",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-BOAT/Wh",
+      itemName: "707 - IRON Boat in White",
+      rrpInGST: 130715.00,
+      dealerPriceInGST: 115029.20,
+      dealerMargin: 15685.80
+    },
+    {
+      itemCode: "707-DELI",
+      itemName: "707 - Delivery costs, including 50 litre fuel",
+      rrpInGST: 725.00,
+      dealerPriceInGST: 652.51,
+      dealerMargin: 72.49
+    },
+    {
+      itemCode: "707-HYDR",
+      itemName: "707 - Hydraulic Pump and hoses",
+      rrpInGST: 1534.50,
+      dealerPriceInGST: 1381.05,
+      dealerMargin: 153.45
+    }
+  ],
+
   // IRON 767
-  "IRON 767":[
-        {
+  // IRON 767 - Mercury 250 V8 PROXS
+  "IRON 767 - Mercury 250 V8 PROXS": [
+    {
+      itemCode: "MERC-V8-250HP PRO XS",
+      itemName: "Mercury V8 PRO XS - 250HP",
+      rrpInGST: 37756.00,
+      dealerPriceInGST: 35868.20,
+      dealerMargin: 1887.80
+    },
+    {
       itemCode: "767- Flooring",
       itemName: "767 - Sea Deck soft flooring",
       rrpInGST: 2235.00,
@@ -368,8 +777,122 @@ const inventoryCategories = {
       dealerMargin: 87.50
     },
   ],
+  // IRON 767 - Mercury 250 V8 Verado
+  "IRON 767 - Mercury 250 V8 Verado": [
+    {
+      itemCode: "MERC-V8-250HP Verado",
+      itemName: "Mercury V8 Verado 250HP",
+      rrpInGST: 38607.00,
+      dealerPriceInGST: 36676.65,
+      dealerMargin: 1930.35
+    },
+    {
+      itemCode: "767- Flooring",
+      itemName: "767 - Sea Deck soft flooring",
+      rrpInGST: 2235.00,
+      dealerPriceInGST: 2035.00,
+      dealerMargin: 200.00
+    },
+    {
+      itemCode: "767-ANTI",
+      itemName: "767 - Antifouling",
+      rrpInGST: 1995.00,
+      dealerPriceInGST: 1795.50,
+      dealerMargin: 199.50
+    },
+    {
+      itemCode: "767-BOAT/B",
+      itemName: "767 - IRON Boat in Black",
+      rrpInGST: 153130.00,
+      dealerPriceInGST: 134754.40,
+      dealerMargin: 18375.60
+    },
+    {
+      itemCode: "767-BOAT/G",
+      itemName: "767 - IRON Boat in Grey",
+      rrpInGST: 153130.00,
+      dealerPriceInGST: 134754.40,
+      dealerMargin: 18375.60
+    },
+    {
+      itemCode: "767-BOAT/W",
+      itemName: "767 - IRON Boat in White",
+      rrpInGST: 153130.00,
+      dealerPriceInGST: 134754.40,
+      dealerMargin: 18375.60
+    },
+    {
+      itemCode: "767-DELI",
+      itemName: "767 - Delivery costs, including 100 litre fuel",
+      rrpInGST: 875.00,
+      dealerPriceInGST: 787.50,
+      dealerMargin: 87.50
+    },
+  ],
+  // IRON 767 - Mercury 300 V8 VERADO 
+  "IRON 767 - Mercury 300 V8 VERADO": [
+    {
+      itemCode: "MERC-V8-300HP Verado",
+      itemName: "Mercury V8 Verado 300HP for 767 and 827",
+      rrpInGST: 42138.00,
+      dealerPriceInGST: 40031.10,
+      dealerMargin: 2106.90
+    },
+    {
+      itemCode: "767- Flooring",
+      itemName: "767 - Sea Deck soft flooring",
+      rrpInGST: 2235.00,
+      dealerPriceInGST: 2035.00,
+      dealerMargin: 200.00
+    },
+    {
+      itemCode: "767-ANTI",
+      itemName: "767 - Antifouling",
+      rrpInGST: 1995.00,
+      dealerPriceInGST: 1795.50,
+      dealerMargin: 199.50
+    },
+    {
+      itemCode: "767-BOAT/B",
+      itemName: "767 - IRON Boat in Black",
+      rrpInGST: 153130.00,
+      dealerPriceInGST: 134754.40,
+      dealerMargin: 18375.60
+    },
+    {
+      itemCode: "767-BOAT/G",
+      itemName: "767 - IRON Boat in Grey",
+      rrpInGST: 153130.00,
+      dealerPriceInGST: 134754.40,
+      dealerMargin: 18375.60
+    },
+    {
+      itemCode: "767-BOAT/W",
+      itemName: "767 - IRON Boat in White",
+      rrpInGST: 153130.00,
+      dealerPriceInGST: 134754.40,
+      dealerMargin: 18375.60
+    },
+    {
+      itemCode: "767-DELI",
+      itemName: "767 - Delivery costs, including 100 litre fuel",
+      rrpInGST: 875.00,
+      dealerPriceInGST: 787.50,
+      dealerMargin: 87.50
+    },
+  ],
+
+
   // iron 827
-    "IRON 827": [
+  // IRON 827 - Mercury 250 V8 PRO-XS
+  "IRON 827 - Mercury 250 V8 PRO-XS": [
+    {
+      itemCode: "MERC-V8-250HP PRO XS",
+      itemName: "Mercury V8 PRO XS - 250HP",
+      rrpInGST: 37756.00,
+      dealerPriceInGST: 35868.20,
+      dealerMargin: 1887.80
+    },
     {
       itemCode: "827 - Boat cover",
       itemName: "827 - locally made heavy duty boat cover.",
@@ -455,8 +978,491 @@ const inventoryCategories = {
       dealerMargin: 89.50
     }
   ],
+  //  IRON 827 - Mercury 250 V8 Verado
+  "IRON 827 - Mercury 250 V8 Verado": [
+    {
+      itemCode: "MERC-V8-250HP Verado",
+      itemName: "Mercury V8 Verado 250HP",
+      rrpInGST: 38607.00,
+      dealerPriceInGST: 36676.65,
+      dealerMargin: 1930.35
+    },
+    {
+      itemCode: "827 - Boat cover",
+      itemName: "827 - locally made heavy duty boat cover.",
+      rrpInGST: 6435.00,
+      dealerPriceInGST: 5791.50,
+      dealerMargin: 643.50
+    },
+    {
+      itemCode: "827 - Flooring",
+      itemName: "827 - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827- Coupe DELIVERY",
+      itemName: "827C - Delivery Costs, including 150 litre fuel",
+      rrpInGST: 995.00,
+      dealerPriceInGST: 891.00,
+      dealerMargin: 104.00
+    },
+    {
+      itemCode: "827 Coupe Flooring",
+      itemName: "827C - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827 COUPE/B",
+      itemName: "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/G",
+      itemName: "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/W",
+      itemName: "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827-ANTI",
+      itemName: "827 - 827 C Antifouling",
+      rrpInGST: 2195.00,
+      dealerPriceInGST: 1975.50,
+      dealerMargin: 219.50
+    },
+    {
+      itemCode: "827-BOAT/B",
+      itemName: "827 - IRON Boat in Black",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/G",
+      itemName: "827 - IRON Boat in Grey",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/W",
+      itemName: "827 - IRON Boat in White",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-DELI",
+      itemName: "827 - Delivery costs, including 150 litre fuel",
+      rrpInGST: 895.00,
+      dealerPriceInGST: 805.50,
+      dealerMargin: 89.50
+    }
+  ],
+
+  // IRON 827 - Mercury 300 V8 VERADO
+  "IRON 827 - Mercury 300 V8 VERADO": [
+    {
+      itemCode: "MERC-V8-300HP Verado",
+      itemName: "Mercury V8 Verado 300HP for 767 and 827",
+      rrpInGST: 42138.00,
+      dealerPriceInGST: 40031.10,
+      dealerMargin: 2106.90
+    },
+    {
+      itemCode: "827 - Boat cover",
+      itemName: "827 - locally made heavy duty boat cover.",
+      rrpInGST: 6435.00,
+      dealerPriceInGST: 5791.50,
+      dealerMargin: 643.50
+    },
+    {
+      itemCode: "827 - Flooring",
+      itemName: "827 - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827- Coupe DELIVERY",
+      itemName: "827C - Delivery Costs, including 150 litre fuel",
+      rrpInGST: 995.00,
+      dealerPriceInGST: 891.00,
+      dealerMargin: 104.00
+    },
+    {
+      itemCode: "827 Coupe Flooring",
+      itemName: "827C - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827 COUPE/B",
+      itemName: "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/G",
+      itemName: "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/W",
+      itemName: "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827-ANTI",
+      itemName: "827 - 827 C Antifouling",
+      rrpInGST: 2195.00,
+      dealerPriceInGST: 1975.50,
+      dealerMargin: 219.50
+    },
+    {
+      itemCode: "827-BOAT/B",
+      itemName: "827 - IRON Boat in Black",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/G",
+      itemName: "827 - IRON Boat in Grey",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/W",
+      itemName: "827 - IRON Boat in White",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-DELI",
+      itemName: "827 - Delivery costs, including 150 litre fuel",
+      rrpInGST: 895.00,
+      dealerPriceInGST: 805.50,
+      dealerMargin: 89.50
+    }
+  ],
+
+  // IRON 827 - Mercury 350 V10 VERADO
+  "IRON 827 - Mercury 350 V10 VERADO": [
+        {
+      itemCode: "MERC-V10-350HP Verado",
+      itemName: "Mercury V10 Verado 350 HP",
+      rrpInGST: 49209.00,
+      dealerPriceInGST: 46748.55,
+      dealerMargin: 2460.45
+    },
+    {
+      itemCode: "827 - Boat cover",
+      itemName: "827 - locally made heavy duty boat cover.",
+      rrpInGST: 6435.00,
+      dealerPriceInGST: 5791.50,
+      dealerMargin: 643.50
+    },
+    {
+      itemCode: "827 - Flooring",
+      itemName: "827 - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827- Coupe DELIVERY",
+      itemName: "827C - Delivery Costs, including 150 litre fuel",
+      rrpInGST: 995.00,
+      dealerPriceInGST: 891.00,
+      dealerMargin: 104.00
+    },
+    {
+      itemCode: "827 Coupe Flooring",
+      itemName: "827C - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827 COUPE/B",
+      itemName: "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/G",
+      itemName: "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/W",
+      itemName: "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827-ANTI",
+      itemName: "827 - 827 C Antifouling",
+      rrpInGST: 2195.00,
+      dealerPriceInGST: 1975.50,
+      dealerMargin: 219.50
+    },
+    {
+      itemCode: "827-BOAT/B",
+      itemName: "827 - IRON Boat in Black",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/G",
+      itemName: "827 - IRON Boat in Grey",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/W",
+      itemName: "827 - IRON Boat in White",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-DELI",
+      itemName: "827 - Delivery costs, including 150 litre fuel",
+      rrpInGST: 895.00,
+      dealerPriceInGST: 805.50,
+      dealerMargin: 89.50
+    }
+  ],
+
+  // IRON 827 - Mercury 400 V10 VERADO
+  "IRON 827 - Mercury 400 V10 VERADO": [
+        {
+      itemCode: "MERC-V10-400HP Verado",
+      itemName: "Mercury V10 Verado 400HP",
+      rrpInGST: 53004.00,
+      dealerPriceInGST: 50353.80,
+      dealerMargin: 2650.20
+    },
+    {
+      itemCode: "827 - Boat cover",
+      itemName: "827 - locally made heavy duty boat cover.",
+      rrpInGST: 6435.00,
+      dealerPriceInGST: 5791.50,
+      dealerMargin: 643.50
+    },
+    {
+      itemCode: "827 - Flooring",
+      itemName: "827 - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827- Coupe DELIVERY",
+      itemName: "827C - Delivery Costs, including 150 litre fuel",
+      rrpInGST: 995.00,
+      dealerPriceInGST: 891.00,
+      dealerMargin: 104.00
+    },
+    {
+      itemCode: "827 Coupe Flooring",
+      itemName: "827C - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827 COUPE/B",
+      itemName: "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/G",
+      itemName: "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/W",
+      itemName: "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827-ANTI",
+      itemName: "827 - 827 C Antifouling",
+      rrpInGST: 2195.00,
+      dealerPriceInGST: 1975.50,
+      dealerMargin: 219.50
+    },
+    {
+      itemCode: "827-BOAT/B",
+      itemName: "827 - IRON Boat in Black",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/G",
+      itemName: "827 - IRON Boat in Grey",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/W",
+      itemName: "827 - IRON Boat in White",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-DELI",
+      itemName: "827 - Delivery costs, including 150 litre fuel",
+      rrpInGST: 895.00,
+      dealerPriceInGST: 805.50,
+      dealerMargin: 89.50
+    }
+  ],
+  // IRON 827 - Mercury 450R V8 VERADO
+  "IRON 827 - Mercury 450R V8 VERADO": [
+        {
+      itemCode: "Rigging V8 450R Verado",
+      itemName: "Mercury Verado V8 450R complete install",
+      rrpInGST: 12094.50,
+      dealerPriceInGST: 10885.05,
+      dealerMargin: 1209.45
+    },
+    {
+      itemCode: "827 - Boat cover",
+      itemName: "827 - locally made heavy duty boat cover.",
+      rrpInGST: 6435.00,
+      dealerPriceInGST: 5791.50,
+      dealerMargin: 643.50
+    },
+    {
+      itemCode: "827 - Flooring",
+      itemName: "827 - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827- Coupe DELIVERY",
+      itemName: "827C - Delivery Costs, including 150 litre fuel",
+      rrpInGST: 995.00,
+      dealerPriceInGST: 891.00,
+      dealerMargin: 104.00
+    },
+    {
+      itemCode: "827 Coupe Flooring",
+      itemName: "827C - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827 COUPE/B",
+      itemName: "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/G",
+      itemName: "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/W",
+      itemName: "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827-ANTI",
+      itemName: "827 - 827 C Antifouling",
+      rrpInGST: 2195.00,
+      dealerPriceInGST: 1975.50,
+      dealerMargin: 219.50
+    },
+    {
+      itemCode: "827-BOAT/B",
+      itemName: "827 - IRON Boat in Black",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/G",
+      itemName: "827 - IRON Boat in Grey",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/W",
+      itemName: "827 - IRON Boat in White",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-DELI",
+      itemName: "827 - Delivery costs, including 150 litre fuel",
+      rrpInGST: 895.00,
+      dealerPriceInGST: 805.50,
+      dealerMargin: 89.50
+    }
+  ],
+
   // iron 827 coupe
-  "IRON 827 Coupe": [
+  // IRON 827 COUPE - Mercury 250 V8 Pro-XS
+  "IRON 827 COUPE - Mercury 250 V8 Pro-XS": [
+        {
+      itemCode: "MERC-V8-250HP PRO XS",
+      itemName: "Mercury V8 PRO XS - 250HP",
+      rrpInGST: 37756.00,
+      dealerPriceInGST: 35868.20,
+      dealerMargin: 1887.80
+    },
+
     {
       itemCode: "827 - Boat cover",
       itemName: "827 - locally made heavy duty boat cover.",
@@ -542,6 +1548,383 @@ const inventoryCategories = {
       dealerMargin: 89.50
     }
   ],
+  //  IRON 827 COUPE - Mercury 300 V8 VERADO
+  "IRON 827 COUPE - Mercury 300 V8 VERADO": [
+        {
+      itemCode: "MERC-V8-300HP Verado",
+      itemName: "Mercury V8 Verado 300HP for 767 and 827",
+      rrpInGST: 42138.00,
+      dealerPriceInGST: 40031.10,
+      dealerMargin: 2106.90
+    },
+    {
+      itemCode: "827 - Boat cover",
+      itemName: "827 - locally made heavy duty boat cover.",
+      rrpInGST: 6435.00,
+      dealerPriceInGST: 5791.50,
+      dealerMargin: 643.50
+    },
+    {
+      itemCode: "827 - Flooring",
+      itemName: "827 - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827- Coupe DELIVERY",
+      itemName: "827C - Delivery Costs, including 150 litre fuel",
+      rrpInGST: 995.00,
+      dealerPriceInGST: 891.00,
+      dealerMargin: 104.00
+    },
+    {
+      itemCode: "827 Coupe Flooring",
+      itemName: "827C - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827 COUPE/B",
+      itemName: "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/G",
+      itemName: "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/W",
+      itemName: "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827-ANTI",
+      itemName: "827 - 827 C Antifouling",
+      rrpInGST: 2195.00,
+      dealerPriceInGST: 1975.50,
+      dealerMargin: 219.50
+    },
+    {
+      itemCode: "827-BOAT/B",
+      itemName: "827 - IRON Boat in Black",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/G",
+      itemName: "827 - IRON Boat in Grey",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/W",
+      itemName: "827 - IRON Boat in White",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-DELI",
+      itemName: "827 - Delivery costs, including 150 litre fuel",
+      rrpInGST: 895.00,
+      dealerPriceInGST: 805.50,
+      dealerMargin: 89.50
+    }
+  ],
+  // IRON 827 COUPE - Mercury 350 V10 VERADO
+  "IRON 827 COUPE - Mercury 350 V10 VERADO": [
+        {
+      itemCode: "MERC-V10-350HP Verado",
+      itemName: "Mercury V10 Verado 350 HP",
+      rrpInGST: 49209.00,
+      dealerPriceInGST: 46748.55,
+      dealerMargin: 2460.45
+    },
+    {
+      itemCode: "827 - Boat cover",
+      itemName: "827 - locally made heavy duty boat cover.",
+      rrpInGST: 6435.00,
+      dealerPriceInGST: 5791.50,
+      dealerMargin: 643.50
+    },
+    {
+      itemCode: "827 - Flooring",
+      itemName: "827 - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827- Coupe DELIVERY",
+      itemName: "827C - Delivery Costs, including 150 litre fuel",
+      rrpInGST: 995.00,
+      dealerPriceInGST: 891.00,
+      dealerMargin: 104.00
+    },
+    {
+      itemCode: "827 Coupe Flooring",
+      itemName: "827C - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827 COUPE/B",
+      itemName: "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/G",
+      itemName: "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/W",
+      itemName: "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827-ANTI",
+      itemName: "827 - 827 C Antifouling",
+      rrpInGST: 2195.00,
+      dealerPriceInGST: 1975.50,
+      dealerMargin: 219.50
+    },
+    {
+      itemCode: "827-BOAT/B",
+      itemName: "827 - IRON Boat in Black",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/G",
+      itemName: "827 - IRON Boat in Grey",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/W",
+      itemName: "827 - IRON Boat in White",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-DELI",
+      itemName: "827 - Delivery costs, including 150 litre fuel",
+      rrpInGST: 895.00,
+      dealerPriceInGST: 805.50,
+      dealerMargin: 89.50
+    }
+  ],
+  // IRON 827 COUPE - Mercury 400 V10 VERADO
+  "IRON 827 COUPE - Mercury 400 V10 VERADO": [
+        {
+      itemCode: "MERC-V10-400HP Verado",
+      itemName: "Mercury V10 Verado 400HP",
+      rrpInGST: 53004.00,
+      dealerPriceInGST: 50353.80,
+      dealerMargin: 2650.20
+    },
+    {
+      itemCode: "827 - Boat cover",
+      itemName: "827 - locally made heavy duty boat cover.",
+      rrpInGST: 6435.00,
+      dealerPriceInGST: 5791.50,
+      dealerMargin: 643.50
+    },
+    {
+      itemCode: "827 - Flooring",
+      itemName: "827 - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827- Coupe DELIVERY",
+      itemName: "827C - Delivery Costs, including 150 litre fuel",
+      rrpInGST: 995.00,
+      dealerPriceInGST: 891.00,
+      dealerMargin: 104.00
+    },
+    {
+      itemCode: "827 Coupe Flooring",
+      itemName: "827C - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827 COUPE/B",
+      itemName: "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/G",
+      itemName: "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/W",
+      itemName: "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827-ANTI",
+      itemName: "827 - 827 C Antifouling",
+      rrpInGST: 2195.00,
+      dealerPriceInGST: 1975.50,
+      dealerMargin: 219.50
+    },
+    {
+      itemCode: "827-BOAT/B",
+      itemName: "827 - IRON Boat in Black",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/G",
+      itemName: "827 - IRON Boat in Grey",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/W",
+      itemName: "827 - IRON Boat in White",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-DELI",
+      itemName: "827 - Delivery costs, including 150 litre fuel",
+      rrpInGST: 895.00,
+      dealerPriceInGST: 805.50,
+      dealerMargin: 89.50
+    }
+  ],
+  // IRON 827 COUPE - Mercury 450R V8 VERADO
+  "IRON 827 COUPE - Mercury 450R V8 VERADO": [
+        {
+      itemCode: "Rigging V8 450R Verado",
+      itemName: "Mercury Verado V8 450R complete install",
+      rrpInGST: 12094.50,
+      dealerPriceInGST: 10885.05,
+      dealerMargin: 1209.45
+    },
+    {
+      itemCode: "827 - Boat cover",
+      itemName: "827 - locally made heavy duty boat cover.",
+      rrpInGST: 6435.00,
+      dealerPriceInGST: 5791.50,
+      dealerMargin: 643.50
+    },
+    {
+      itemCode: "827 - Flooring",
+      itemName: "827 - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827- Coupe DELIVERY",
+      itemName: "827C - Delivery Costs, including 150 litre fuel",
+      rrpInGST: 995.00,
+      dealerPriceInGST: 891.00,
+      dealerMargin: 104.00
+    },
+    {
+      itemCode: "827 Coupe Flooring",
+      itemName: "827C - Sea Deck soft flooring",
+      rrpInGST: 2445.00,
+      dealerPriceInGST: 2211.00,
+      dealerMargin: 234.00
+    },
+    {
+      itemCode: "827 COUPE/B",
+      itemName: "827 - C - IRON Boat 827 Coupe Black, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/G",
+      itemName: "827 - C - IRON Boat 827 Coupe Grey, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827 COUPE/W",
+      itemName: "827 - C - IRON Boat 827 Coupe White, w bowthruster",
+      rrpInGST: 207445.00,
+      dealerPriceInGST: 180477.15,
+      dealerMargin: 26967.85
+    },
+    {
+      itemCode: "827-ANTI",
+      itemName: "827 - 827 C Antifouling",
+      rrpInGST: 2195.00,
+      dealerPriceInGST: 1975.50,
+      dealerMargin: 219.50
+    },
+    {
+      itemCode: "827-BOAT/B",
+      itemName: "827 - IRON Boat in Black",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/G",
+      itemName: "827 - IRON Boat in Grey",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-BOAT/W",
+      itemName: "827 - IRON Boat in White",
+      rrpInGST: 168020.00,
+      dealerPriceInGST: 146177.41,
+      dealerMargin: 21842.59
+    },
+    {
+      itemCode: "827-DELI",
+      itemName: "827 - Delivery costs, including 150 litre fuel",
+      rrpInGST: 895.00,
+      dealerPriceInGST: 805.50,
+      dealerMargin: 89.50
+    }
+  ],
+
   // iron 907
   "IRON 907": [
     {

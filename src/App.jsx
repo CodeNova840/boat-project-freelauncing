@@ -13,8 +13,8 @@ function App() {
   return (
     <InventoryProvider>
       <Routes>
-        <Route path='/' element={<LoginScreen />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path='/login' element={<LoginScreen />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin/*" element={
           <ProtectedRoute allowedRoles={["admin"]}>

@@ -15,13 +15,13 @@ const AdminHeader = () => {
   // Function to handle logout
   const handleLogout = async () => {
     try {
-      await authService.signout(); // Make sure this matches your service method name
-      navigate('/');
+      await authService.logout(); // Make sure this matches your service method name
+      navigate('/login');
     } catch (error) {
       console.error('Logout failed:', error);
       // Optional: Force logout even if there's an error
       localStorage.clear();
-      navigate('/');
+      navigate('/login');
     }
   };
 
@@ -46,7 +46,7 @@ const AdminHeader = () => {
             aria-label="Logout"
           >
             <LogOut className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-200 md:hidden">
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-200 ">
               Logout
             </span>
           </button>
@@ -68,7 +68,7 @@ const AdminHeader = () => {
           </button>
 
           {/* Desktop Logout Button */}
-          <button
+          {/* <button
             onClick={handleLogout}
             className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 hidden lg:flex items-center space-x-2"
             aria-label="Logout"
@@ -77,7 +77,7 @@ const AdminHeader = () => {
             <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
               Logout
             </span>
-          </button>
+          </button> */}
 
           {/* User Profile */}
           <div className="flex items-center space-x-3">

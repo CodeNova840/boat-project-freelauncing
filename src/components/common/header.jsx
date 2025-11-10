@@ -19,7 +19,7 @@ export default function Header() {
     const handleLogout = async () => {
         try {
             await authService.logout(); // Use AuthService logout
-            navigate("/");
+            navigate("/login");
         } catch (error) {
             console.error("Logout failed:", error);
             // Fallback: clear localStorage manually if AuthService fails
@@ -29,12 +29,12 @@ export default function Header() {
             localStorage.removeItem("id");
             localStorage.removeItem("auth");
             localStorage.removeItem("user");
-            navigate("/");
+            navigate("/login");
         }
     };
 
     const handleDealerLogin = () => {
-        navigate("/");
+        navigate("/login");
     };
 
     // Generate initial for profile image
@@ -65,13 +65,11 @@ export default function Header() {
         >
             {/* Logo & Title */}
             <div className="flex items-center gap-3">
-                <Link to='/'>
-                    <img
+                  <img
                         src={logo}
                         alt="Company Logo"
-                        className="w-32 h-9 rounded-md border border-white/30 cursor-pointer"
+                        className="w-28 h-9 md:w-32 rounded-md border border-white/30 cursor-pointer"
                     />
-                </Link>
             </div>
 
             {/* Navigation + Theme Toggle */}
@@ -95,7 +93,7 @@ export default function Header() {
                 {isLoggedIn ? (
                     <div className="flex items-center gap-3">
                         {/* User Profile */}
-                        <div className="flex items-center gap-2 bg-white/20 rounded-lg px-3 py-2">
+                        <div className="flex items-center gap-2 bg-white/20 rounded-lg px-3 py-2 hidden md:bloack">
                             {/* Profile Image with Initial */}
                             <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${getProfileColor()}`}>
                                 {getUserInitial()}
@@ -111,7 +109,7 @@ export default function Header() {
                         {/* Logout Button */}
                         <button
                             onClick={handleLogout}
-                            className="px-3 py-1 rounded-md bg-white/20 hover:bg-white/30 text-sm md:text-base transition-colors"
+                            className="px-3 md:py-1 py-2  rounded-md bg-white/20 hover:bg-white/30 text-sm md:text-base transition-colors"
                         >
                             Logout
                         </button>
