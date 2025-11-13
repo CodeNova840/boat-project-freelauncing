@@ -59,17 +59,17 @@ export const InventoryProvider = ({ children }) => {
       console.log('Items after removal:', newItems); // Debug log
       
       // Check if we need to clear the selected category
-      const remainingItemsInCategory = newItems.filter(item => 
-        item.category === selectedCategory
-      );
+      // const remainingItemsInCategory = newItems.filter(item => 
+      //   item.category === selectedCategory
+      // );
       
-      if (remainingItemsInCategory.length === 0) {
-        // Clear category if no items left from this category
-        setSelectedCategory('');
-        localStorage.removeItem('selectedCategory');
-        localStorage.removeItem('selectedDisplay');
-        localStorage.removeItem('selectedCategoryLabel');
-      }
+      // if (remainingItemsInCategory.length === 0) {
+      //   // Clear category if no items left from this category
+      //   setSelectedCategory('');
+      //   localStorage.removeItem('selectedCategory');
+      //   localStorage.removeItem('selectedDisplay');
+      //   localStorage.removeItem('selectedCategoryLabel');
+      // }
       
       return newItems;
     });

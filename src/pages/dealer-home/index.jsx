@@ -2,6 +2,7 @@ import DashboardLayout from "../../layouts/dashboard-layouts";
 import { useInventory } from '../../context/inventory-context'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { categoryConfig } from "../../constants/categories-config";
 
 const DealersHome = () => {
   const {
@@ -16,102 +17,7 @@ const DealersHome = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [selectedDisplay, setSelectedDisplay] = useState('');
   const [selectedCategoryLabel, setSelectedCategoryLabel] = useState('');
-
-  // Category configuration with organized labels
-  const categoryConfig = {
-    groups: [
-      {
-        label: "IRON 100",
-        models: [
-          {
-            display: "IRON 100",
-            value: "IRON 100"
-          }
-        ]
-      },
-      {
-        label: "IRON 647",
-        models: [
-          {
-            display: "IRON 647",
-            variants: [
-              { display: "IRON 647 - Mercury 150 V6 Pro XS", value: "IRON 647 - Mercury 150 V6 Pro XS" },
-              { display: "IRON 647 - Mercury 200 V8 Pro XS", value: "IRON 647 - Mercury 200 V8 Pro XS" },
-              { display: "IRON 647 - Mercury 200 V6 DTS", value: "IRON 647 - Mercury 200 V6 DTS" }
-            ]
-          },
-        ]
-      },
-      {
-        label: "IRON 707",
-        models: [
-          {
-            display: "IRON 707",
-            variants: [
-              { display: "IRON 707 - Mercury 200 V6 DTS", value: "IRON 707 - Mercury 200 V6 DTS" },
-              { display: "IRON 707 - Mercury 225 V6 DTS", value: "IRON 707 - Mercury 225 V6 DTS" },
-              { display: "IRON 707 - Mercury 200 V8 PROXS", value: "IRON 707 - Mercury 200 V8 PROXS" },
-              { display: "IRON 707 - Mercury 250 V8 PROXS", value: "IRON 707 - Mercury 250 V8 PROXS" },
-              { display: "IRON 707 - Mercury 250 V8 Verado", value: "IRON 707 - Mercury 250 V8 Verado" }
-            ]
-          },
-        ]
-      },
-      {
-        label: "IRON 767",
-        models: [
-          {
-            display: "IRON 767",
-            variants: [
-              { display: "IRON 767 - Mercury 250 V8 PROXS", value: "IRON 767 - Mercury 250 V8 PROXS" },
-              { display: "IRON 767 - Mercury 250 V8 Verado", value: "IRON 767 - Mercury 250 V8 Verado" },
-              { display: "IRON 767 - Mercury 300 V8 VERADO", value: "IRON 767 - Mercury 300 V8 VERADO" }
-            ]
-          },
-        ]
-      },
-      {
-        label: "IRON 827",
-        models: [
-          {
-            display: "IRON 827",
-            variants: [
-              { display: "IRON 827 - Mercury 250 V8 PRO-XS", value: "IRON 827 - Mercury 250 V8 PRO-XS" },
-              { display: "IRON 827 - Mercury 250 V8 Verado", value: "IRON 827 - Mercury 250 V8 Verado" },
-              { display: "IRON 827 - Mercury 300 V8 VERADO", value: "IRON 827 - Mercury 300 V8 VERADO" },
-              { display: "IRON 827 - Mercury 350 V10 VERADO", value: "IRON 827 - Mercury 350 V10 VERADO" },
-              { display: "IRON 827 - Mercury 400 V10 VERADO", value: "IRON 827 - Mercury 400 V10 VERADO" },
-              { display: "IRON 827 - Mercury 450R V8 VERADO", value: "IRON 827 - Mercury 450R V8 VERADO" }
-            ]
-          },
-        ]
-      },
-      {
-        label: "IRON 827 Coupe",
-        models: [
-          {
-            display: "IRON 827 Coupe",
-            variants: [
-              { display: "IRON 827 COUPE - Mercury 250 V8 Pro-XS", value: "IRON 827 COUPE - Mercury 250 V8 Pro-XS" },
-              { display: "IRON 827 COUPE - Mercury 300 V8 VERADO", value: "IRON 827 COUPE - Mercury 300 V8 VERADO" },
-              { display: "IRON 827 COUPE - Mercury 350 V10 VERADO", value: "IRON 827 COUPE - Mercury 350 V10 VERADO" },
-              { display: "IRON 827 COUPE - Mercury 400 V10 VERADO", value: "IRON 827 COUPE - Mercury 400 V10 VERADO" },
-              { display: "IRON 827 COUPE - Mercury 450R V8 VERADO", value: "IRON 827 COUPE - Mercury 450R V8 VERADO" }
-            ]
-          },
-        ]
-      },
-      {
-        label: "IRON 907",
-        models: [
-          {
-            display: "IRON 907",
-            value: "IRON 907"
-          }
-        ]
-      }
-    ]
-  };
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const isDark = localStorage.getItem('darkMode') === 'true' ||
@@ -151,15 +57,14 @@ const DealersHome = () => {
     setSelectedDisplay(displayText);
     setSelectedCategory(categoryValue);
     setSelectedCategoryLabel(categoryLabel);
-    
+    setSearchTerm(''); // Reset search when category changes
+
     localStorage.setItem('selectedCategory', categoryValue);
     localStorage.setItem('selectedDisplay', displayText);
     localStorage.setItem('selectedCategoryLabel', categoryLabel);
   };
 
   const handleItemSelect = (item) => {
-    console.log('Item clicked:', item);
-
 
     if (isItemSelected(item.code)) {
       console.log('Removing item:', item.code);
@@ -187,19 +92,46 @@ const DealersHome = () => {
     ? categories[selectedCategory]
     : [];
 
-  const formatCurrency = (amount) => {
-    const roundedAmount = Math.round(amount);
-    return new Intl.NumberFormat('en-AU', {
-      style: 'currency',
-      currency: 'AUD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(roundedAmount);
+  // Filter main items based on search term
+  const filteredMainItems = currentItems.filter(item => 
+    searchTerm === '' || 
+    item.itemName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.itemCode?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Function to get accessories category
+  const getAccessoriesCategory = () => {
+    if (!selectedCategory) return null;
+
+    // Find the accessories key from categoryConfig
+    for (const group of categoryConfig.groups) {
+      for (const model of group.models) {
+        if (model.variants) {
+          // Model with variants
+          const variant = model.variants.find(v => v.value === selectedCategory);
+          if (variant && variant.accessories) {
+            return variant.accessories;
+          }
+        } else {
+          // Simple model without variants
+          if (model.value === selectedCategory && model.accessories) {
+            return model.accessories;
+          }
+        }
+      }
+    }
+
+    return null;
   };
 
-  const getRoundedRRP = (rrpInGST) => {
-    return Math.round(rrpInGST);
-  };
+  // Safe accessories items with fallback
+  const accessoriesCategory = getAccessoriesCategory();
+  const accessoriesItems = accessoriesCategory && categories && categories[accessoriesCategory]
+    ? categories[accessoriesCategory]
+    : [];
+
+  // Check if we should show accessories section
+  const showAccessoriesSection = accessoriesCategory && accessoriesItems.length > 0;
 
   return (
     <DashboardLayout>
@@ -250,8 +182,8 @@ const DealersHome = () => {
                                   data-category={variant.value}
                                   data-category-label={group.label}
                                   className={`py-2 ml-4 ${index < model.variants.length - 1
-                                      ? 'border-b border-gray-200 dark:border-gray-600'
-                                      : ''
+                                    ? 'border-b border-gray-200 dark:border-gray-600'
+                                    : ''
                                     }`}
                                 >
                                   {variant.display}
@@ -305,106 +237,248 @@ const DealersHome = () => {
             {/* Items List */}
             <div className="lg:col-span-3 min-w-0">
               {selectedCategory && currentItems.length > 0 && (
-                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700 transition-all duration-300 w-full min-w-0">
-                  <div className="flex items-center justify-between mb-6 min-w-0">
-                    <div className="min-w-0">
-                      <h3 className="text-xl font-bold text-gray-800 dark:text-white truncate min-w-0">
-                        {selectedDisplay || selectedCategory}
-                      </h3>
-                      {selectedCategoryLabel && (
-                        <div className="flex items-center space-x-3 mt-2">
-                          <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium whitespace-nowrap">
-                            {selectedCategoryLabel}
-                          </span>
-                          <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium whitespace-nowrap">
-                            {currentItems.length} items
-                          </span>
+                <div className="space-y-6">
+                  {/* Main Items Section */}
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700 transition-all duration-300 w-full min-w-0">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 min-w-0 gap-4">
+                      <div className="min-w-0">
+                        <h3 className="text-xl font-bold text-gray-800 dark:text-white truncate min-w-0">
+                          {selectedDisplay || selectedCategory}
+                        </h3>
+                        {selectedCategoryLabel && (
+                          <div className="flex items-center flex-col md:flex-row gap-2 md:gap-0 space-x-3 mt-2">
+                            <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium whitespace-nowrap">
+                              {selectedCategoryLabel}
+                            </span>
+                            <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium whitespace-nowrap">
+                              {filteredMainItems.length} of {currentItems.length} items
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {/* Search Bar for Main Items */}
+                      <div className="relative w-full md:w-64">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                          <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                          </svg>
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="Search items..."
+                          value={searchTerm}
+                          onChange={(e) => setSearchTerm(e.target.value)}
+                          className="w-full pl-10 pr-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-400 transition-all duration-200 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                        />
+                        {searchTerm && (
+                          <button
+                            onClick={() => setSearchTerm('')}
+                            className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                          >
+                            <svg className="h-4 w-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2 w-full min-w-0">
+                      {filteredMainItems.length > 0 ? (
+                        filteredMainItems.map(item => {
+                          return (
+                            <div
+                              key={item.itemCode}
+                              className={`p-5 border-2 rounded-xl transition-all duration-300 cursor-pointer hover:border-blue-800 w-full min-w-0 ${isItemSelected(item.itemCode)
+                                ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 shadow-lg'
+                                : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:border-gray-300 dark:hover:border-gray-600'
+                                }`}
+                              onClick={() => handleItemSelect({
+                                code: item.itemCode,
+                                name: item.itemName,
+                                rrpInGST: item.rrpInGST,
+                                dealerPriceInGST: item.dealerPriceInGST,
+                                dealerMargin: item.dealerMargin
+                              })}
+                            >
+                              <div className="flex items-start space-x-4 min-w-0">
+                                <div className="flex-shrink-0 mt-1">
+                                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${isItemSelected(item.itemCode)
+                                    ? 'bg-blue-500 border-blue-500'
+                                    : 'bg-white dark:bg-gray-600 border-gray-400'
+                                    }`}>
+                                    {isItemSelected(item.itemCode) && (
+                                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                      </svg>
+                                    )}
+                                  </div>
+                                </div>
+                                <div className="flex-1 min-w-0 overflow-hidden">
+                                  <div className="flex flex-col md:flex-row items-start justify-between min-w-0 ">
+                                    <h4 className={`font-semibold text-lg break-words min-w-0 pr-2 ${isItemSelected(item.itemCode)
+                                      ? 'text-blue-700 dark:text-blue-300'
+                                      : 'text-gray-900 dark:text-white'
+                                      }`}>
+                                      {item.itemName}
+                                    </h4>
+                                    <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-2 py-1 rounded-md flex-shrink-0 whitespace-nowrap">
+                                      {item.itemCode}
+                                    </span>
+                                  </div>
+
+                                  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
+                                    <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 min-h-[80px] flex flex-col justify-center">
+                                      <div className="text-sm text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap truncate">
+                                        RRP (inc GST)
+                                      </div>
+                                      <div className="text-lg font-bold text-blue-600 dark:text-blue-400 mt-1 truncate">
+                                        {item.rrpInGST}
+                                      </div>
+                                    </div>
+                                    <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 min-h-[80px] flex flex-col justify-center">
+                                      <div className="text-sm text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap truncate">
+                                        Dealer Price
+                                      </div>
+                                      <div className="text-lg font-bold text-purple-600 dark:text-purple-400 mt-1 truncate">
+                                        {item.dealerPriceInGST}
+                                      </div>
+                                    </div>
+                                    <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 min-h-[80px] flex flex-col justify-center">
+                                      <div className="text-sm text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap truncate">
+                                        Dealer Margin
+                                      </div>
+                                      <div className={`text-lg font-bold mt-1 truncate ${item.dealerMargin > 0
+                                        ? 'text-emerald-600 dark:text-emerald-400'
+                                        : 'text-red-600 dark:text-red-400'
+                                        }`}>
+                                        {item.dealerMargin}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })
+                      ) : (
+                        <div className="text-center py-8">
+                          <svg className="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                          </svg>
+                          <p className="text-gray-500 dark:text-gray-400 mt-2">No items found matching "{searchTerm}"</p>
+                          <button
+                            onClick={() => setSearchTerm('')}
+                            className="mt-2 text-blue-600 dark:text-blue-400 hover:underline"
+                          >
+                            Clear search
+                          </button>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2 w-full min-w-0">
-                    {currentItems.map(item => {
-                      const roundedRRP = getRoundedRRP(item.rrpInGST);
-                      const roundedDealerPrice = getRoundedRRP(item.dealerPriceInGST);
-                      
-                      return (
-                        <div
-                          key={item.itemCode}
-                          className={`p-5 border-2 rounded-xl transition-all duration-300 cursor-pointer hover:border-blue-800 w-full min-w-0 ${isItemSelected(item.itemCode)
-                            ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 shadow-lg'
-                            : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:border-gray-300 dark:hover:border-gray-600'
-                            }`}
-                          onClick={() => handleItemSelect({
-                            code: item.itemCode,
-                            name: item.itemName,
-                            rrpInGST: item.rrpInGST,
-                            dealerPriceInGST: item.dealerPriceInGST,
-                            dealerMargin: item.dealerMargin
-                          })}
-                        >
-                          <div className="flex items-start space-x-4 min-w-0">
-                            <div className="flex-shrink-0 mt-1">
-                              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${isItemSelected(item.itemCode)
-                                ? 'bg-blue-500 border-blue-500'
-                                : 'bg-white dark:bg-gray-600 border-gray-400'
-                                }`}>
-                                {isItemSelected(item.itemCode) && (
-                                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                  </svg>
-                                )}
-                              </div>
-                            </div>
-                            <div className="flex-1 min-w-0 overflow-hidden">
-                              <div className="flex flex-col md:flex-row items-start justify-between min-w-0 ">
-                                <h4 className={`font-semibold text-lg break-words min-w-0 pr-2 ${isItemSelected(item.itemCode)
-                                  ? 'text-blue-700 dark:text-blue-300'
-                                  : 'text-gray-900 dark:text-white'
-                                  }`}>
-                                  {item.itemName}
-                                </h4>
-                                <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-2 py-1 rounded-md flex-shrink-0 whitespace-nowrap">
-                                  {item.itemCode}
-                                </span>
-                              </div>
-
-                              <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
-                                <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 min-h-[80px] flex flex-col justify-center">
-                                  <div className="text-sm text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap truncate">
-                                    RRP (inc GST)
-                                  </div>
-                                  <div className="text-lg font-bold text-blue-600 dark:text-blue-400 mt-1 truncate">
-                                    {formatCurrency(roundedRRP)}
-                                  </div>
-                                </div>
-                                <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 min-h-[80px] flex flex-col justify-center">
-                                  <div className="text-sm text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap truncate">
-                                    Dealer Price
-                                  </div>
-                                  <div className="text-lg font-bold text-purple-600 dark:text-purple-400 mt-1 truncate">
-                                    {formatCurrency(roundedDealerPrice)}
-                                  </div>
-                                </div>
-                                <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 min-h-[80px] flex flex-col justify-center">
-                                  <div className="text-sm text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap truncate">
-                                    Dealer Margin
-                                  </div>
-                                  <div className={`text-lg font-bold mt-1 truncate ${item.dealerMargin > 0
-                                    ? 'text-emerald-600 dark:text-emerald-400'
-                                    : 'text-red-600 dark:text-red-400'
-                                    }`}>
-                                    {formatCurrency(item.dealerMargin)}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                  {/* Accessories Section */}
+                  {showAccessoriesSection && (
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700 transition-all duration-300 w-full min-w-0">
+                      <div className="flex items-center space-x-4 mb-6">
+                        <div className="w-3 h-10 bg-gradient-to-b from-orange-500 to-red-500 rounded-full"></div>
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                            {selectedDisplay || selectedCategory} - Accessories
+                          </h3>
+                          <div className="flex items-center flex-col md:gap-0 md:flex-row gap-2  space-x-3 mt-2">
+                            <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium whitespace-nowrap">
+                              Accessories
+                            </span>
+                            <span className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm font-medium whitespace-nowrap">
+                              {accessoriesItems.length} accessories available
+                            </span>
                           </div>
                         </div>
-                      );
-                    })}
-                  </div>
+                      </div>
+
+                      <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2 w-full min-w-0">
+                        {accessoriesItems.map(item => {
+                          return (
+                            <div
+                              key={item.itemCode}
+                              className={`p-5 border-2 rounded-xl transition-all duration-300 cursor-pointer hover:border-orange-800 w-full min-w-0 ${isItemSelected(item.itemCode)
+                                ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 shadow-lg'
+                                : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:border-orange-300 dark:hover:border-orange-600'
+                                }`}
+                              onClick={() => handleItemSelect({
+                                code: item.itemCode,
+                                name: item.itemName,
+                                rrpInGST: item.rrpInGST,
+                                dealerPriceInGST: item.dealerPriceInGST,
+                                dealerMargin: item.dealerMargin
+                              })}
+                            >
+                              <div className="flex items-start space-x-4 min-w-0">
+                                <div className="flex-shrink-0 mt-1">
+                                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${isItemSelected(item.itemCode)
+                                    ? 'bg-blue-500 border-blue-500'
+                                    : 'bg-white dark:bg-gray-600 border-gray-400'
+                                    }`}>
+                                    {isItemSelected(item.itemCode) && (
+                                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                      </svg>
+                                    )}
+                                  </div>
+                                </div>
+                                <div className="flex-1 min-w-0 overflow-hidden">
+                                  <div className="flex flex-col md:flex-row items-start justify-between min-w-0 ">
+                                    <h4 className={`font-semibold text-lg break-words min-w-0 pr-2 ${isItemSelected(item.itemCode)
+                                      ? 'text-blue-700 dark:text-blue-300'
+                                      : 'text-gray-900 dark:text-white'
+                                      }`}>
+                                      {item.itemName}
+                                    </h4>
+                                    <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-2 py-1 rounded-md flex-shrink-0 whitespace-nowrap">
+                                      {item.itemCode}
+                                    </span>
+                                  </div>
+
+                                  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
+                                    <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 min-h-[80px] flex flex-col justify-center">
+                                      <div className="text-sm text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap truncate">
+                                        RRP (inc GST)
+                                      </div>
+                                      <div className="text-lg font-bold text-blue-600 dark:text-blue-400 mt-1 truncate">
+                                        {item.rrpInGST}
+                                      </div>
+                                    </div>
+                                    <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 min-h-[80px] flex flex-col justify-center">
+                                      <div className="text-sm text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap truncate">
+                                        Dealer Price
+                                      </div>
+                                      <div className="text-lg font-bold text-purple-600 dark:text-purple-400 mt-1 truncate">
+                                        {item.dealerPriceInGST}
+                                      </div>
+                                    </div>
+                                    <div className="text-center p-3 bg-white dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 min-h-[80px] flex flex-col justify-center">
+                                      <div className="text-sm text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap truncate">
+                                        Dealer Margin
+                                      </div>
+                                      <div className={`text-lg font-bold mt-1 truncate ${item.dealerMargin > 0
+                                        ? 'text-emerald-600 dark:text-emerald-400'
+                                        : 'text-red-600 dark:text-red-400'
+                                        }`}>
+                                        {item.dealerMargin}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 

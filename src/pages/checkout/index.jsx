@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useInventory } from '../../context/inventory-context';
 import ReceiptModal from '../../components/modal/receipt';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
+  const navigate=useNavigate();
   const location = useLocation();
   const { selectedDisplay } = location.state || {};
   const { selectedItems, removeItem, clearAllItems } = useInventory();
@@ -17,26 +18,32 @@ const Checkout = () => {
     }).format(amount);
   };
 
-const calculateTotals = () => {
-  const totals = {
-    totalRRP: 0,
-    totalDealerPrice: 0,
-    totalMargin: 0
+  const calculateTotals = () => {
+    const totals = {
+      totalRRP: 0,
+      totalDealerPrice: 0,
+      totalMargin: 0
+    };
+
+    console.log(selectedItems, 'selected items checkout')
+    selectedItems.forEach(item => {
+      // console.log(item,'map item')
+      totals.totalRRP += item.rrpInGST;
+      // FIX: Use the actual dealer price property instead of rrpExGST
+      totals.totalDealerPrice += item.dealerGST || item.dealerPrice;
+      totals.totalMargin += item.dealerMargin;
+    });
+    console.log(totals, "totals")
+    return totals;
   };
-  
-  console.log(selectedItems, 'selected items checkout')
-  selectedItems.forEach(item => {
-    // console.log(item,'map item')
-    totals.totalRRP += item.rrpInGST;
-    // FIX: Use the actual dealer price property instead of rrpExGST
-    totals.totalDealerPrice += item.dealerGST || item.dealerPrice;
-    totals.totalMargin += item.dealerMargin;
-  });
-  console.log(totals, "totals")
-  return totals;
-};
 
   const totals = calculateTotals();
+
+  const handleBackToSelection = () => {
+  // Go back to previous page
+    navigate(-1);
+  };
+
 
   if (selectedItems.length === 0) {
     return (
@@ -79,15 +86,14 @@ const calculateTotals = () => {
                 </div>
 
                 {/* Action Button */}
-                <Link
-                  to="/dealer"
+                <button onClick={handleBackToSelection}
                   className="inline-flex items-center gap-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-extrabold text-lg px-12 py-5 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg group/btn"
                 >
                   <span>Browse Premium Items</span>
                   <svg className="w-5 h-5 transform group-hover/btn:translate-x-1 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -119,12 +125,12 @@ const calculateTotals = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Checkout Summary</h1>
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
-          <Link
-            to="/dealer"
+          <button
+            onClick={handleBackToSelection}
             className="bg-gray-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-md hover:bg-gray-700 transition-colors duration-200 font-medium text-center text-sm sm:text-base"
           >
             Back to Selection
-          </Link>
+          </button>
           <button
             onClick={() => setShowReceipt(true)}
             className="bg-green-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-md hover:bg-green-700 transition-colors duration-200 font-medium text-center text-sm sm:text-base"
